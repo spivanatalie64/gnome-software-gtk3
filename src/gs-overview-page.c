@@ -9,7 +9,7 @@
 
 #include "config.h"
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 #include <glib/gi18n.h>
 #include <math.h>
 

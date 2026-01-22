@@ -10,7 +10,7 @@
 
 #include "config.h"
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 #include <malloc.h>
 #include <string.h>
 #include <glib/gi18n.h>

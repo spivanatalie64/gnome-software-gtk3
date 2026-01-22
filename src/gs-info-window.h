@@ -13,7 +13,7 @@
 #include <glib.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
-#include <adwaita.h>
+#include "adwaita-compat.h"
 
 G_BEGIN_DECLS
 

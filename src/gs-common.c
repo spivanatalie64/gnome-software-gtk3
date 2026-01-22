@@ -12,7 +12,7 @@
 #include <glib/gi18n.h>
 #include <gio/gdesktopappinfo.h>
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 #ifndef TESTDATADIR
 #include "gs-application.h"
 #endif

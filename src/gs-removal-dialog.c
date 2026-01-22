@@ -11,7 +11,7 @@
 #include "gs-removal-dialog.h"
 #include "gs-utils.h"
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="3.0"/>
   <template class="GsAppContextBar" parent="GtkBox">
     <property name="homogeneous">True</property>
     <property name="spacing">0</property>
@@ -29,10 +29,6 @@
                     <style>
                       <class name="grey"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">storage_tile_title</relation>
-                      <relation name="details">storage_tile_description</relation>
-                    </accessibility>
                   </object>
                 </child>
                 <child>
@@ -85,10 +81,6 @@
                     <style>
                       <class name="green"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">safety_tile_title</relation>
-                      <relation name="details">safety_tile_description</relation>
-                    </accessibility>
                   </object>
                 </child>
                 <child>
@@ -145,15 +137,11 @@
                     <property name="circular">False</property>
                     <!-- this is a placeholder: the icon is actually set in code -->
                     <property name="icon-name">device-support-adaptive-symbolic</property>
-                    <property name="pixel-size">56</property>
+                    <property name="pixel_size">56</property>
                     <style>
                       <class name="green"/>
                       <class name="wide-image"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">hardware_support_tile_title</relation>
-                      <relation name="details">hardware_support_tile_description</relation>
-                    </accessibility>
                   </object>
                 </child>
                 <child>
@@ -204,10 +192,6 @@
                     <style>
                       <class name="details-rating-18"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">age_rating_tile_title</relation>
-                      <relation name="details">age_rating_tile_description</relation>
-                    </accessibility>
                   </object>
                 </child>
                 <child>

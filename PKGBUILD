@@ -9,7 +9,7 @@ url="https://gitlab.gnome.org/GNOME/gnome-software"
 license=(GPL)
 depends=(gtk3 glib2 gdk-pixbuf2 json-glib libsoup libxmlb appstream)
 makedepends=(meson ninja pkgconf git base-devel)
-source=("git+file:///home/natalie/Projects/gnome-software-gtk3#branch=distro/gtk3-acreetionos")
+source=("git+https://github.com/spivanatalie64/gnome-software-gtk3#branch=distro/gtk3-acreetionos")
 sha256sums=(SKIP)
 
 build() {
@@ -18,9 +18,14 @@ build() {
   meson compile -C build
 }
 
+# Run tests. Set ACREETIONOS_OPTIONAL_TESTS=1 to allow test failures without breaking the build.
 check() {
   cd "$srcdir/gnome-software-gtk3"
-  meson test -C build || true
+  if [[ -n "${ACREETIONOS_OPTIONAL_TESTS:-}" ]]; then
+    meson test -C build || true
+  else
+    meson test -C build
+  fi
 }
 
 package() {

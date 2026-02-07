@@ -13,7 +13,7 @@
 #include <gtk/gtk.h>
 
 /* If libadwaita is actually available, prefer it. */
-#if defined(HAVE_LIBADWAITA)
+#if __has_include(<adwaita.h>)
 #include <adwaita.h>
 #else
 
@@ -45,10 +45,12 @@ typedef int AdwNavigationDirection;
 #define ADW_TYPE_BIN GTK_TYPE_WIDGET
 #define ADW_TYPE_PREFERENCES_DIALOG GTK_TYPE_WIDGET
 #define ADW_TYPE_PREFERENCES_GROUP GTK_TYPE_WIDGET
+#define ADW_TYPE_ALERT_DIALOG GTK_TYPE_DIALOG
 
 #define ADW_DIALOG(obj) (GTK_WIDGET(obj))
 #define ADW_BANNER(obj) (GTK_WIDGET(obj))
 #define ADW_PREFERENCES_GROUP(obj) (GTK_WIDGET(obj))
+#define ADW_ALERT_DIALOG(obj) (GTK_DIALOG(obj))
 
 /* Stubs for common adwaita helpers used throughout the codebase. */
 static inline AdwAlertDialog *
@@ -61,15 +63,73 @@ adw_alert_dialog_new (const char *title, ...)
 static inline void
 adw_alert_dialog_set_extra_child (AdwAlertDialog *d, GtkWidget *child)
 {
+    /* GTK3 compat: gtk_container_add + explicit show to match GTK4 gtk_box_append behavior */
     GtkWidget *content_area = gtk_dialog_get_content_area (GTK_DIALOG (d));
-    if (content_area && GTK_IS_WIDGET (child))
-        gtk_box_append (GTK_BOX (content_area), child);
+    if (content_area && GTK_IS_WIDGET (child)) {
+        gtk_container_add (GTK_CONTAINER (content_area), child);
+        gtk_widget_show (child);
+    }
 }
 
 static inline void
-adw_alert_dialog_add_response (AdwAlertDialog *d, int response_id, const char *label)
+adw_alert_dialog_add_response (AdwAlertDialog *d, const char *response_id, const char *label)
 {
     (void) d; (void) response_id; (void) label;
+}
+
+static inline void
+adw_alert_dialog_add_responses (AdwAlertDialog *d, ...)
+{
+    (void) d;
+}
+
+static inline void
+adw_alert_dialog_set_body (AdwAlertDialog *d, const char *body)
+{
+    (void) d; (void) body;
+}
+
+static inline void
+adw_alert_dialog_set_body_use_markup (AdwAlertDialog *d, gboolean use_markup)
+{
+    (void) d; (void) use_markup;
+}
+
+static inline void
+adw_alert_dialog_set_heading (AdwAlertDialog *d, const char *heading)
+{
+    (void) d; (void) heading;
+}
+
+static inline void
+adw_alert_dialog_set_close_response (AdwAlertDialog *d, const char *response_id)
+{
+    (void) d; (void) response_id;
+}
+
+static inline void
+adw_alert_dialog_set_response_enabled (AdwAlertDialog *d, const char *response_id, gboolean enabled)
+{
+    (void) d; (void) response_id; (void) enabled;
+}
+
+static inline void
+adw_alert_dialog_set_response_appearance (AdwAlertDialog *d, const char *response_id, int appearance)
+{
+    (void) d; (void) response_id; (void) appearance;
+}
+
+static inline void
+adw_alert_dialog_choose (AdwAlertDialog *d, GtkWidget *parent, GCancellable *cancellable, GAsyncReadyCallback callback, gpointer user_data)
+{
+    (void) d; (void) parent; (void) cancellable; (void) callback; (void) user_data;
+}
+
+static inline const char *
+adw_alert_dialog_choose_finish (AdwAlertDialog *d, GAsyncResult *result)
+{
+    (void) d; (void) result;
+    return NULL;
 }
 
 static inline void

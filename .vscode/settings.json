@@ -1,4 +1,4 @@
 {
-    "C_Cpp.default.compileCommands": "${workspaceFolder}/builddir/compile_commands.json",
-    "clangd.arguments": ["--compile-commands-dir=builddir"]
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "clangd.arguments": ["--compile-commands-dir=build"]
 }

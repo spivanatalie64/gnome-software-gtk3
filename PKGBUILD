@@ -9,7 +9,8 @@ url="https://gitlab.gnome.org/GNOME/gnome-software"
 license=(GPL)
 depends=(gtk3 glib2 gdk-pixbuf2 json-glib libsoup libxmlb appstream)
 makedepends=(meson ninja pkgconf git base-devel)
-source=("git+https://github.com/spivanatalie64/gnome-software-gtk3.git#branch=distro/gtk3-acreetionos")
+# NOTE: Update the source path to point to your local repository clone
+source=("git+file:///path/to/gnome-software-gtk3#branch=distro/gtk3-acreetionos")
 sha256sums=(SKIP)
 
 build() {

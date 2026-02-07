@@ -516,7 +516,7 @@
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="version_history_button_row">
+                                      <object class="GtkListBoxRow">
                                         <property name="title" translatable="yes">Version History</property>
                                         <property name="end-icon-name">go-next-symbolic</property>
                                       </object>
@@ -1083,7 +1083,7 @@
                                               </object>
                                             </child>
                                             <child>
-                                              <object class="GtkButton" id="write_review_button_row">
+                                              <object class="GtkListBoxRow">
                                                 <property name="title" translatable="yes" comments="Translators: Button opening a dialog where the users can write and publish their opinions about the apps.">Write R_eview</property>
                                                 <property name="end-icon-name">go-next-symbolic</property>
                                                 <property name="use-underline">True</property>
@@ -1100,7 +1100,7 @@
                                               <class name="boxed-list"/>
                                             </style>
                                             <child>
-                                              <object class="GtkButton" id="all_reviews_button_row">
+                                              <object class="GtkListBoxRow">
                                                 <property name="title" translatable="yes" comments="Translators: Button opening a dialog showing all reviews for an app.">All Reviews</property>
                                                 <property name="end-icon-name">go-next-symbolic</property>
                                               </object>

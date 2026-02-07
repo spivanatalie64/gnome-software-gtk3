@@ -71,7 +71,7 @@
     <property name="orientation">vertical</property>
     <property name="spacing">6</property>
             <child>
-              <object class="GtkSwitch" id="automatic_update_notifications_row">
+              <object class="GtkListBoxRow" id="automatic_update_notifications_row">
                 <property name="title" translatable="yes">Automatic Update _Notifications</property>
                 <property name="subtitle" translatable="yes">Notify when updates have been automatically installed</property>
                 <property name="use-underline">True</property>
@@ -86,7 +86,7 @@
     <property name="spacing">6</property>
             <property name="title" translatable="yes">Content Filters</property>
             <child>
-              <object class="GtkSwitch" id="show_only_free_apps_row">
+              <object class="GtkListBoxRow" id="show_only_free_apps_row">
                 <property name="title" translatable="yes">Only Show _Free Software</property>
                 <property name="subtitle" translatable="yes">Hide proprietary software when browsing and searching</property>
                 <property name="use-underline">True</property>
@@ -94,7 +94,7 @@
               </object>
             </child>
             <child>
-              <object class="GtkSwitch" id="show_only_verified_apps_row">
+              <object class="GtkListBoxRow" id="show_only_verified_apps_row">
                 <property name="title" translatable="yes">Only Show _Verified Developers</property>
                 <property name="subtitle" translatable="yes">Show only apps from developers whose identity has been verified</property>
                 <property name="use-underline">True</property>

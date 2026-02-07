@@ -41,7 +41,7 @@
     <property name="orientation">vertical</property>
     <property name="spacing">6</property>
                 <child>
-                  <object class="GtkEntry" id="user_entry">
+                  <object class="GtkListBoxRow" id="user_entry">
                     <property name="title" translatable="yes" comments="Translators: Title for a login entry.">_User</property>
                     <property name="use-underline">True</property>
                     <property name="activates-default">True</property>
@@ -50,7 +50,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="password_entry">
+                  <object class="GtkListBoxRow" id="password_entry">
                     <property name="title" translatable="yes" comments="Translators: Title for a login entry.">_Password</property>
                     <property name="use-underline">True</property>
                     <property name="activates-default">True</property>

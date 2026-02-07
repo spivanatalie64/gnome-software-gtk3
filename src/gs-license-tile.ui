@@ -75,7 +75,7 @@
         </child>
 
         <child>
-          <object class="GtkButton" id="get_involved_button_row">
+          <object class="GtkListBoxRow">
             <property name="title" translatable="yes">_Get Involved</property>
             <property name="end-icon-name">external-link-symbolic</property>
             <property name="use-underline">True</property>

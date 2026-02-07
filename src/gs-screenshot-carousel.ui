@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsScreenshotCarousel" parent="GtkWidget">
+  <requires lib="gtk" version="3.0"/><template class="GsScreenshotCarousel" parent="GtkWidget">
     <property name="visible">False</property>
     <child>
       <object class="GtkStack" id="stack">
@@ -20,7 +18,7 @@
                 <child>
                   <object class="GtkOverlay">
                     <child>
-                      <object class="AdwCarousel" id="carousel">
+                      <object class="GtkStack" id="carousel">
                         <property name="vexpand">True</property>
                         <signal name="notify::n-pages" handler="gs_screenshot_carousel_notify_n_pages_cb" swapped="yes"/>
                         <signal name="notify::position" handler="gs_screenshot_carousel_notify_position_cb" swapped="yes"/>
@@ -41,10 +39,6 @@
                             <property name="margin-end">9</property>
                             <property name="icon-name">go-previous-symbolic</property>
                             <signal name="clicked" handler="gs_screenshot_carousel_button_previous_clicked_cb" swapped="yes"/>
-                            <accessibility>
-                              <!-- Translators: This is the accessible description for a button to go to the previous screenshot in the screenshot carousel. -->
-                              <property name="label" translatable="yes">Previous Screenshot</property>
-                            </accessibility>
                             <style>
                               <class name="circular"/>
                               <class name="image-button"/>
@@ -69,10 +63,6 @@
                             <property name="margin-end">9</property>
                             <property name="icon-name">go-next-symbolic</property>
                             <signal name="clicked" handler="gs_screenshot_carousel_button_next_clicked_cb" swapped="yes"/>
-                            <accessibility>
-                              <!-- Translators: This is the accessible description for a button to go to the next screenshot in the screenshot carousel. -->
-                              <property name="label" translatable="yes">Next Screenshot</property>
-                            </accessibility>
                             <style>
                               <class name="circular"/>
                               <class name="image-button"/>
@@ -85,7 +75,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwCarouselIndicatorDots" id="carousel_indicator">
+                  <object class="GtkStackSwitcher" id="carousel_indicator">
                     <property name="carousel">carousel</property>
                   </object>
                 </child>

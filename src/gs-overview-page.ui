@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsOverviewPage" parent="GsPage">
-    <accessibility>
-      <property name="label" translatable="yes">Overview page</property>
-    </accessibility>
+  <requires lib="gtk" version="3.0"/><template class="GsOverviewPage" parent="GsPage">
     <child>
       <object class="GtkStack" id="stack_overview">
 
@@ -26,7 +21,7 @@
                         <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <child>
-                          <object class="AdwClamp">
+                          <object class="GtkBox">
                             <!-- We use the same sizes as the category page. -->
                             <property name="maximum-size">1000</property>
                             <property name="tightening-threshold">600</property>
@@ -81,10 +76,7 @@
                                     <property name="valign">start</property>
                                     <property name="selection-mode">none</property>
                                     <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                                    <accessibility>
-                                      <relation name="labelled-by">curated_heading</relation>
-                                    </accessibility>
-                                  </object>
+                                    </object>
                                 </child>
 
                                 <child>
@@ -106,10 +98,7 @@
                                     <property name="valign">start</property>
                                     <property name="selection-mode">none</property>
                                     <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                                    <accessibility>
-                                      <relation name="labelled-by">recent_heading</relation>
-                                    </accessibility>
-                                  </object>
+                                    </object>
                                 </child>
 
                                 <child>
@@ -134,10 +123,7 @@
                                     <property name="max_children_per_line">3</property>
                                     <property name="selection_mode">none</property>
                                     <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                                    <accessibility>
-                                      <relation name="labelled-by">deployment_featured_heading</relation>
-                                    </accessibility>
-                                  </object>
+                                    </object>
                                 </child>
 
                                 <child>
@@ -161,10 +147,7 @@
                                     <property name="valign">start</property>
                                     <property name="selection-mode">none</property>
                                     <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                                    <accessibility>
-                                      <relation name="labelled-by">heading_all_apps</relation>
-                                    </accessibility>
-                                  </object>
+                                    </object>
                                 </child>
 
                                 <child>
@@ -187,10 +170,7 @@
                                     <property name="max_children_per_line">3</property>
                                     <property name="selection_mode">none</property>
                                     <signal name="child-activated" handler="category_activated_cb" swapped="yes"/>
-                                    <accessibility>
-                                      <relation name="labelled-by">iconless_categories_heading</relation>
-                                    </accessibility>
-                                  </object>
+                                    </object>
                                 </child>
                               </object>
                             </child>
@@ -210,7 +190,7 @@
           <object class="GtkStackPage">
             <property name="name">no-results</property>
             <property name="child">
-              <object class="AdwStatusPage" id="noresults_grid_overview">
+              <object class="GtkBox" id="noresults_grid_overview">
                 <property name="icon_name">org.gnome.Software-symbolic</property>
                 <property name="title" translatable="yes">No App Data Found</property>
               </object>

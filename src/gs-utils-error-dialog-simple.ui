@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="AdwDialog" id="dialog">
+  <object class="GtkDialog" id="dialog">
     <property name="title" translatable="yes">Error Details</property>
-    <property name="content-width">500</property>
-    <property name="content-height">350</property>
+    <property name="default-width">500</property>
+    <property name="default-height">350</property>
     <property name="child">
-      <object class="AdwToolbarView">
+      <object class="GtkBox">
         <child type="top">
-          <object class="AdwHeaderBar"/>
+          <object class="GtkHeaderBar"/>
         </child>
         <property name="content">
-          <object class="AdwToastOverlay" id="toast_overlay">
+          <object class="GtkOverlay" id="toast_overlay">
             <property name="child">
-              <object class="AdwPreferencesPage">
+              <object class="GtkBox">
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="GtkBox">
                     <child>
                       <object class="GtkLabel" id="label">
                         <property name="wrap">True</property>
@@ -27,7 +27,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="GtkBox">
                     <property name="title" translatable="yes">Details</property>
                     <property name="header-suffix">
                       <object class="GtkButton" id="button">

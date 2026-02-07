@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsCategoryPage" parent="GsPage">
+  <requires lib="gtk" version="3.0"/><template class="GsCategoryPage" parent="GsPage">
     <child>
       <object class="GtkScrolledWindow" id="scrolledwindow_category">
         <property name="hscrollbar_policy">never</property>
@@ -11,7 +9,7 @@
           <object class="GtkViewport" id="viewport3">
             <property name="scroll-to-focus">True</property>
             <child>
-              <object class="AdwClamp">
+              <object class="GtkBox">
                 <!-- We use the same sizes as the overview page. -->
                 <property name="maximum-size">1000</property>
                 <property name="tightening-threshold">600</property>
@@ -56,10 +54,7 @@
                         <property name="margin-bottom">24</property>
                         <property name="selection-mode">none</property>
                         <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                        <accessibility>
-                          <relation name="labelled-by">featured_heading</relation>
-                        </accessibility>
-                      </object>
+                        </object>
                     </child>
 
                     <child>
@@ -85,10 +80,7 @@
                         <property name="margin-bottom">24</property>
                         <property name="selection-mode">none</property>
                         <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                        <accessibility>
-                          <relation name="labelled-by">recently_updated_heading</relation>
-                        </accessibility>
-                      </object>
+                        </object>
                     </child>
 
                     <child>
@@ -114,10 +106,7 @@
                         <property name="margin-bottom">24</property>
                         <property name="selection-mode">none</property>
                         <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                        <accessibility>
-                          <relation name="labelled-by">web_apps_heading</relation>
-                        </accessibility>
-                      </object>
+                        </object>
                     </child>
 
                     <child>
@@ -141,10 +130,7 @@
                         <property name="margin-bottom">24</property>
                         <property name="selection-mode">none</property>
                         <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
-                        <accessibility>
-                          <relation name="labelled-by">other_heading</relation>
-                        </accessibility>
-                      </object>
+                        </object>
                     </child>
                   </object>
                 </child>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="3.0"/>
   <template class="GsUpdatesSection" parent="GtkBox">
     <property name="orientation">vertical</property>
     <style>
@@ -90,9 +90,6 @@
     <child>
       <object class="GtkBox" id="listbox_box">
         <property name="orientation">vertical</property>
-        <accessibility>
-          <relation name="labelled-by">title</relation>
-        </accessibility>
         <child>
           <object class="GtkListBox" id="listbox">
             <property name="selection_mode">none</property>

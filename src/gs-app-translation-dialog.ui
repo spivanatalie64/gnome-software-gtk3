@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsAppTranslationDialog" parent="GsInfoWindow">
+  <requires lib="gtk" version="3.0"/><template class="GsAppTranslationDialog" parent="GsInfoWindow">
     <property name="title" translatable="yes">Translations</property>
-    <property name="content-width">480</property>
+    <property name="default-width">480</property>
     <child>
-      <object class="AdwPreferencesPage">
+      <object class="GtkBox">
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox">
 
             <child>
               <object class="GtkBox">
@@ -34,10 +32,7 @@
                           <class name="large"/>
                           <class name="blue"/>
                         </style>
-                        <accessibility>
-                          <relation name="labelled-by">title</relation>
-                        </accessibility>
-                      </object>
+                        </object>
                     </child>
 
                     <child>

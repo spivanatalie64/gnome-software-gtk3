@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsFeaturedCarousel" parent="GtkBox">
+  <requires lib="gtk" version="3.0"/><template class="GsFeaturedCarousel" parent="GtkBox">
     <property name="halign">fill</property>
     <property name="orientation">vertical</property>
     <property name="spacing">12</property>
-    <child>
-      <object class="GtkEventControllerKey">
-        <signal name="key-pressed" handler="key_pressed_cb"/>
-      </object>
-    </child>
     <style>
       <class name="featured-carousel"/>
     </style>
@@ -19,7 +12,7 @@
         <property name="halign">fill</property>
         <property name="valign">fill</property>
         <child>
-          <object class="AdwCarousel" id="carousel">
+          <object class="GtkStack" id="carousel">
             <signal name="notify::position" handler="carousel_notify_position_cb" swapped="yes"/>
             <style>
               <class name="card"/>
@@ -39,9 +32,6 @@
             <property name="margin-end">9</property>
             <property name="icon-name">go-previous-symbolic</property>
             <signal name="clicked" handler="previous_button_clicked_cb"/>
-            <accessibility>
-              <property name="label" translatable="yes">Previous</property>
-            </accessibility>
             <style>
               <class name="circular"/>
               <class name="flat"/>
@@ -62,9 +52,6 @@
             <property name="margin-end">9</property>
             <property name="icon_name">go-next-symbolic</property>
             <signal name="clicked" handler="next_button_clicked_cb"/>
-            <accessibility>
-              <property name="label" translatable="yes">Next</property>
-            </accessibility>
             <style>
               <class name="circular"/>
               <class name="flat"/>
@@ -75,12 +62,9 @@
       </object>
     </child>
     <child>
-      <object class="AdwCarouselIndicatorDots" id="dots">
+      <object class="GtkStackSwitcher" id="dots">
         <property name="carousel">carousel</property>
       </object>
     </child>
-    <accessibility>
-      <property name="label" translatable="yes">Featured Apps List</property>
-    </accessibility>
-  </template>
+    </template>
 </interface>

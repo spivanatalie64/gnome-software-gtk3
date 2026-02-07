@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="3.0"/>
   <template class="GsAppContextBar" parent="GtkBox">
     <property name="homogeneous">True</property>
     <property name="spacing">0</property>
@@ -29,11 +29,7 @@
                     <style>
                       <class name="grey"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">storage_tile_title</relation>
-                      <relation name="details">storage_tile_description</relation>
-                    </accessibility>
-                  </object>
+                    </object>
                 </child>
                 <child>
                   <object class="GtkLabel" id="storage_tile_title">
@@ -85,11 +81,7 @@
                     <style>
                       <class name="green"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">safety_tile_title</relation>
-                      <relation name="details">safety_tile_description</relation>
-                    </accessibility>
-                  </object>
+                    </object>
                 </child>
                 <child>
                   <object class="GtkLabel" id="safety_tile_title">
@@ -150,11 +142,7 @@
                       <class name="green"/>
                       <class name="wide-image"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">hardware_support_tile_title</relation>
-                      <relation name="details">hardware_support_tile_description</relation>
-                    </accessibility>
-                  </object>
+                    </object>
                 </child>
                 <child>
                   <object class="GtkLabel" id="hardware_support_tile_title">
@@ -204,11 +192,7 @@
                     <style>
                       <class name="details-rating-18"/>
                     </style>
-                    <accessibility>
-                      <relation name="labelled-by">age_rating_tile_title</relation>
-                      <relation name="details">age_rating_tile_description</relation>
-                    </accessibility>
-                  </object>
+                    </object>
                 </child>
                 <child>
                   <object class="GtkLabel" id="age_rating_tile_title">

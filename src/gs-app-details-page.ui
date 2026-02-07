@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsAppDetailsPage" parent="AdwNavigationPage">
+  <requires lib="gtk" version="3.0"/>  <template class="GsAppDetailsPage" parent="GtkBox">
     <property name="child">
-      <object class="AdwToolbarView">
+      <object class="GtkBox">
         <child type="top">
-          <object class="AdwHeaderBar"/>
+          <object class="GtkHeaderBar"/>
         </child>
         <property name="content">
-          <object class="AdwStatusPage" id="status_page">
+          <object class="GtkBox" id="status_page">
             <property name="icon_name">system-component-application</property>
             <property name="title">Inkscape</property>
             <property name="description">Vector based drawing program</property>
@@ -18,12 +16,12 @@
               <class name="compact"/>
             </style>
             <child>
-              <object class="AdwClamp" id="status_page_clamp">
+              <object class="GtkBox" id="status_page_clamp">
                 <child>
                   <object class="GtkBox">
                     <property name="orientation">vertical</property>
                     <child>
-                      <object class="AdwPreferencesGroup" id="permissions_section">
+                      <object class="GtkBox" id="permissions_section">
                         <property name="title" translatable="yes">Requires additional permissions</property>
                         <!-- We can't remove children from a AdwPreferencesGroup
                             without knowing them beforehand, so let's simply
@@ -80,7 +78,7 @@
                                   <object class="GtkStackPage">
                                     <property name="name">spinner</property>
                                     <property name="child">
-                                      <object class="AdwSpinner" id="spinner_details">
+                                      <object class="GtkSpinner" id="spinner_details">
                                         <property name="halign">center</property>
                                         <property name="valign">center</property>
                                         <property name="hexpand">True</property>

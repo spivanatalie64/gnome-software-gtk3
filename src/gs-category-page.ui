@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsCategoryPage" parent="GsPage">
+  <requires lib="gtk" version="3.0"/>  <template class="GsCategoryPage" parent="GsPage">
     <child>
       <object class="GtkScrolledWindow" id="scrolledwindow_category">
         <property name="hscrollbar_policy">never</property>
@@ -11,7 +9,7 @@
           <object class="GtkViewport" id="viewport3">
             <property name="scroll-to-focus">True</property>
             <child>
-              <object class="AdwClamp">
+              <object class="GtkBox">
                 <!-- We use the same sizes as the overview page. -->
                 <property name="maximum-size">1000</property>
                 <property name="tightening-threshold">600</property>

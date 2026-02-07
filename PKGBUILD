@@ -9,7 +9,7 @@ url="https://gitlab.gnome.org/GNOME/gnome-software"
 license=(GPL)
 depends=(gtk3 glib2 gdk-pixbuf2 json-glib libsoup libxmlb appstream)
 makedepends=(meson ninja pkgconf git base-devel)
-source=("git+file:///home/natalie/Projects/gnome-software-gtk3#branch=distro/gtk3-acreetionos")
+source=("git+https://github.com/spivanatalie64/gnome-software-gtk3#branch=distro/gtk3-acreetionos")
 sha256sums=(SKIP)
 
 build() {
@@ -20,7 +20,11 @@ build() {
 
 check() {
   cd "$srcdir/gnome-software-gtk3"
-  meson test -C build || true
+  if [[ "${_run_check:-0}" -ne 1 ]]; then
+    echo "Skipping test suite; set _run_check=1 to enable tests."
+    return 0
+  fi
+  meson test -C build
 }
 
 package() {

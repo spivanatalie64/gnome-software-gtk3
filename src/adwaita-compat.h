@@ -13,9 +13,22 @@
 #include <gtk/gtk.h>
 
 /* If libadwaita is actually available, prefer it. */
-#if defined(HAVE_LIBADWAITA)
-#include <adwaita.h>
+#if defined(__has_include)
+#  if __has_include(<adwaita.h>)
+#    include <adwaita.h>
+#    if !defined(HAVE_LIBADWAITA)
+#      define HAVE_LIBADWAITA 1
+#    endif
+#  else
+#    define ADWAITA_COMPAT_FALLBACK 1
+#  endif
+#elif defined(HAVE_LIBADWAITA)
+#  include <adwaita.h>
 #else
+#  define ADWAITA_COMPAT_FALLBACK 1
+#endif
+
+#ifdef ADWAITA_COMPAT_FALLBACK
 
 /* Lightweight type aliases so existing code compiles */
 typedef GtkWidget AdwDialog;
@@ -55,15 +68,14 @@ static inline AdwAlertDialog *
 adw_alert_dialog_new (const char *title, ...)
 {
     (void) title;
-    return GTK_WIDGET(gtk_dialog_new ());
+    return GTK_WIDGET(gtk_window_new ());
 }
 
 static inline void
 adw_alert_dialog_set_extra_child (AdwAlertDialog *d, GtkWidget *child)
 {
-    GtkWidget *content_area = gtk_dialog_get_content_area (GTK_DIALOG (d));
-    if (content_area && GTK_IS_WIDGET (child))
-        gtk_box_append (GTK_BOX (content_area), child);
+    if (GTK_IS_WINDOW (d) && GTK_IS_WIDGET (child))
+        gtk_window_set_child (GTK_WINDOW (d), child);
 }
 
 static inline void
@@ -77,14 +89,14 @@ adw_dialog_present (AdwDialog *d, GtkWidget *parent)
 {
     (void) parent;
     if (GTK_IS_WIDGET (d))
-        gtk_widget_show (GTK_WIDGET (d));
+        gtk_widget_set_visible (GTK_WIDGET (d), TRUE);
 }
 
 static inline void
 adw_dialog_force_close (AdwDialog *d)
 {
-    if (GTK_IS_WIDGET (d))
-        gtk_widget_destroy (GTK_WIDGET (d));
+    if (GTK_IS_WINDOW (d))
+        gtk_window_destroy (GTK_WINDOW (d));
 }
 
 static inline AdwBanner *
@@ -164,6 +176,6 @@ adw_style_manager_get_dark (AdwStyleManager *m)
     (void) m; return FALSE;
 }
 
-#endif /* HAVE_LIBADWAITA */
+#endif /* ADWAITA_COMPAT_FALLBACK */
 
 #endif /* ADWAITA_COMPAT_H */

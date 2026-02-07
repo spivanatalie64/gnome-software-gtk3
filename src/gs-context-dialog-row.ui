@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="3.0"/><template class="GsContextDialogRow" parent="GtkListBoxRow">
+  <requires lib="gtk" version="3.0"/>
+  <template class="GsContextDialogRow" parent="GtkListBoxRow">
     <property name="activatable">False</property>
     <property name="focusable">True</property><!-- to allow Orca to read row contents -->
     <property name="use-markup">False</property>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="3.0"/><template class="GsOsUpdatePage" parent="GtkBox">
+  <requires lib="gtk" version="3.0"/>
+  <template class="GsOsUpdatePage" parent="GtkBox">
     <property name="child">
       <object class="GtkBox">
         <child type="top">

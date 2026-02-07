@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="3.0"/><template class="GsRemovalDialog" parent="GtkDialog">
+  <requires lib="gtk" version="3.0"/>
+  <template class="GsRemovalDialog" parent="GtkDialog">
     <property name="title" translatable="yes">Incompatible Software</property>
     <property name="default-width">470</property>
     <property name="default-height">400</property>

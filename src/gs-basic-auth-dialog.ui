@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="3.0"/><template class="GsBasicAuthDialog" parent="GtkDialog">
+  <requires lib="gtk" version="3.0"/>
+  <template class="GsBasicAuthDialog" parent="GtkDialog">
     <property name="title" translatable="yes">Login Required</property>
     <property name="default-width">360</property>
     <property name="default-widget">login_button</property>

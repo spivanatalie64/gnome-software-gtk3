@@ -1,39 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsAppDetailsPage" parent="AdwNavigationPage">
     <property name="child">
-      <object class="AdwToolbarView">
-        <child type="top">
-          <object class="AdwHeaderBar"/>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar" />
         </child>
-        <property name="content">
-          <object class="AdwStatusPage" id="status_page">
-            <property name="icon_name">system-component-application</property>
-            <property name="title">Inkscape</property>
-            <property name="description">Vector based drawing program</property>
-            <property name="vexpand">True</property>
+        <child>
+          <object class="GtkBox" id="status_page">
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <property name="halign">center</property>
             <style>
-              <class name="compact"/>
+              <class name="compact" />
             </style>
             <child>
-              <object class="AdwClamp" id="status_page_clamp">
+              <object class="GtkImage">
+                <property name="icon-name">system-component-application</property>
+                <property name="pixel-size">128</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">Inkscape</property>
+                <style>
+                  <class name="title-1" />
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="label">Vector based drawing program</property>
+                <property name="wrap">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="status_page_clamp">
+                <property name="halign">center</property>
                 <child>
                   <object class="GtkBox">
                     <property name="orientation">vertical</property>
                     <child>
-                      <object class="AdwPreferencesGroup" id="permissions_section">
-                        <property name="title" translatable="yes">Requires additional permissions</property>
-                        <!-- We can't remove children from a AdwPreferencesGroup
-                            without knowing them beforehand, so let's simply
-                            include a GtkListBox and remove its children. -->
+                      <object class="GtkFrame" id="permissions_section">
+                        <property name="label" translatable="yes">Requires additional permissions</property>
                         <child>
-                          <object class="GtkListBox" id="permissions_section_list">
+                          <object class="GtkListBox">
                             <property name="selection-mode">none</property>
                             <style>
-                              <class name="boxed-list"/>
+                              <class name="boxed-list" />
                             </style>
+                            <child>
+                              <object class="GtkListBox" id="permissions_section_list">
+                                <property name="selection-mode">none</property>
+                                <style>
+                                  <class name="boxed-list" />
+                                </style>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>
@@ -42,7 +67,7 @@
                       <object class="GtkListBox">
                         <property name="selection-mode">none</property>
                         <style>
-                          <class name="boxed-list"/>
+                          <class name="boxed-list" />
                         </style>
                         <child>
                           <object class="GtkListBoxRow">
@@ -80,7 +105,7 @@
                                   <object class="GtkStackPage">
                                     <property name="name">spinner</property>
                                     <property name="child">
-                                      <object class="AdwSpinner" id="spinner_details">
+                                      <object class="GtkSpinner" id="spinner_details">
                                         <property name="halign">center</property>
                                         <property name="valign">center</property>
                                         <property name="hexpand">True</property>
@@ -100,7 +125,7 @@
               </object>
             </child>
           </object>
-        </property>
+        </child>
       </object>
     </property>
   </template>

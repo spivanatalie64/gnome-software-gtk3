@@ -1,105 +1,284 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsPrefsDialog" parent="AdwPreferencesDialog">
+  <requires lib="gtk+" version="3.0" />
+  <template class="GsPrefsDialog" parent="GtkDialog">
     <property name="title" translatable="yes">Preferences</property>
-    <property name="content-width">610</property>
-    <child>
-      <object class="AdwPreferencesPage">
+    <property name="default-width">610</property>
+    <property name="default-height">500</property>
+    <property name="modal">True</property>
+    <child internal-child="vbox">
+      <object class="GtkBox">
         <child>
-          <object class="AdwPreferencesGroup">
-            <property name="title" translatable="yes">Software Updates</property>
-            <property name="header-suffix">
-              <object class="GtkMenuButton" id="updates_info_button">
-                <property name="tooltip-text" translatable="yes">More Information</property>
-                <property name="icon-name">info-symbolic</property>
-                <property name="popover">
-                  <object class="GtkPopover">
-                    <property name="child">
-                      <object class="GtkLabel" id="updates_info_label">
-                        <property name="halign">center</property>
-                        <property name="margin-start">6</property>
-                        <property name="margin-end">6</property>
-                        <property name="margin-top">6</property>
-                        <property name="margin-bottom">6</property>
-                        <property name="label" translatable="yes">Checking for and downloading updates uses data and power. Automatic update features are therefore paused when on metered network connections and when power saver is on.</property>
-                        <property name="wrap">True</property>
-                        <property name="max-width-chars">50</property>
-                        <property name="valign">center</property>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
+            <property name="vexpand">True</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">12</property>
+            <property name="margin-top">12</property>
+            <property name="margin-bottom">12</property>
+            <property name="spacing">18</property>
+            <child>
+              <object class="GtkFrame">
+                <property name="label" translatable="yes">Software Updates</property>
+                <child>
+                  <object class="GtkListBox">
+                    <property name="selection-mode">none</property>
+                    <style>
+                      <class name="boxed-list" />
+                    </style>
+                    <child>
+                      <object class="GtkListBoxRow" id="automatic_updates_row">
+                        <property name="activatable">True</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <child type="prefix">
+                              <object class="GtkCheckButton" id="automatic_updates_radio">
+                                <property name="valign">center</property>
+                                <property name="active">True</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="hexpand">True</property>
+                                <property name="valign">center</property>
+                                <property name="spacing">3</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">_Automatic</property>
+                                    <property name="xalign">0</property>
+                                    <property name="use-underline">True</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Automatically check for and download updates</property>
+                                    <property name="xalign">0</property>
+                                    <style>
+                                      <class name="dim-label" />
+                                    </style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
                       </object>
-                    </property>
-                    <signal name="show" handler="popover_show_cb" object="GsPrefsDialog" swapped="yes"/>
-                  </object>
-                </property>
-                <style>
-                  <class name="flat"/>
-                </style>
-              </object>
-            </property>
-            <child>
-              <object class="AdwActionRow" id="automatic_updates_row">
-                <property name="title" translatable="yes">_Automatic</property>
-                <property name="subtitle" translatable="yes">Automatically check for and download updates</property>
-                <property name="activatable-widget">automatic_updates_radio</property>
-                <property name="use-underline">True</property>
-                <property name="use-markup">False</property>
-                <child type="prefix">
-                  <object class="GtkCheckButton" id="automatic_updates_radio">
-                    <property name="valign">center</property>
-                    <property name="active">True</property>
+                    </child>
+                    <child>
+                      <object class="GtkListBoxRow" id="manual_updates_row">
+                        <property name="activatable">True</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <child type="prefix">
+                              <object class="GtkCheckButton" id="manual_updates_radio">
+                                <property name="valign">center</property>
+                                <property name="group">automatic_updates_radio</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="hexpand">True</property>
+                                <property name="valign">center</property>
+                                <property name="spacing">3</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">_Manual</property>
+                                    <property name="xalign">0</property>
+                                    <property name="use-underline">True</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Checking for and downloading updates must be done manually</property>
+                                    <property name="xalign">0</property>
+                                    <style>
+                                      <class name="dim-label" />
+                                    </style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
             </child>
             <child>
-              <object class="AdwActionRow" id="manual_updates_row">
-                <property name="title" translatable="yes">_Manual</property>
-                <property name="subtitle" translatable="yes">Checking for and downloading updates must be done manually</property>
-                <property name="activatable-widget">manual_updates_radio</property>
-                <property name="use-underline">True</property>
-                <property name="use-markup">False</property>
-                <child type="prefix">
-                  <object class="GtkCheckButton" id="manual_updates_radio">
-                    <property name="valign">center</property>
-                    <property name="group">automatic_updates_radio</property>
+              <object class="GtkFrame">
+                <child>
+                  <object class="GtkListBox">
+                    <property name="selection-mode">none</property>
+                    <style>
+                      <class name="boxed-list" />
+                    </style>
+                    <child>
+                      <object class="GtkListBoxRow" id="automatic_update_notifications_row">
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="hexpand">True</property>
+                                <property name="valign">center</property>
+                                <property name="spacing">3</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Automatic Update _Notifications</property>
+                                    <property name="xalign">0</property>
+                                    <property name="use-underline">True</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Notify when updates have been automatically installed</property>
+                                    <property name="xalign">0</property>
+                                    <style>
+                                      <class name="dim-label" />
+                                    </style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSwitch" id="automatic_update_notifications_row_switch">
+                                <property name="valign">center</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkFrame">
+                <property name="label" translatable="yes">Content Filters</property>
+                <child>
+                  <object class="GtkListBox">
+                    <property name="selection-mode">none</property>
+                    <style>
+                      <class name="boxed-list" />
+                    </style>
+                    <child>
+                      <object class="GtkListBoxRow" id="show_only_free_apps_row">
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="hexpand">True</property>
+                                <property name="valign">center</property>
+                                <property name="spacing">3</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Only Show _Free Software</property>
+                                    <property name="xalign">0</property>
+                                    <property name="use-underline">True</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Hide proprietary software when browsing and searching</property>
+                                    <property name="xalign">0</property>
+                                    <style>
+                                      <class name="dim-label" />
+                                    </style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSwitch" id="show_only_free_apps_row_switch">
+                                <property name="valign">center</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkListBoxRow" id="show_only_verified_apps_row">
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">12</property>
+                            <property name="margin-bottom">12</property>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">vertical</property>
+                                <property name="hexpand">True</property>
+                                <property name="valign">center</property>
+                                <property name="spacing">3</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Only Show _Verified Developers</property>
+                                    <property name="xalign">0</property>
+                                    <property name="use-underline">True</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">Show only apps from developers whose identity has been verified</property>
+                                    <property name="xalign">0</property>
+                                    <style>
+                                      <class name="dim-label" />
+                                    </style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSwitch" id="show_only_verified_apps_row_switch">
+                                <property name="valign">center</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
             </child>
           </object>
         </child>
-        <child>
-          <object class="AdwPreferencesGroup">
-            <child>
-              <object class="AdwSwitchRow" id="automatic_update_notifications_row">
-                <property name="title" translatable="yes">Automatic Update _Notifications</property>
-                <property name="subtitle" translatable="yes">Notify when updates have been automatically installed</property>
-                <property name="use-underline">True</property>
-                <property name="use-markup">False</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="AdwPreferencesGroup">
-            <property name="title" translatable="yes">Content Filters</property>
-            <child>
-              <object class="AdwSwitchRow" id="show_only_free_apps_row">
-                <property name="title" translatable="yes">Only Show _Free Software</property>
-                <property name="subtitle" translatable="yes">Hide proprietary software when browsing and searching</property>
-                <property name="use-underline">True</property>
-                <property name="use-markup">False</property>
-              </object>
-            </child>
-            <child>
-              <object class="AdwSwitchRow" id="show_only_verified_apps_row">
-                <property name="title" translatable="yes">Only Show _Verified Developers</property>
-                <property name="subtitle" translatable="yes">Show only apps from developers whose identity has been verified</property>
-                <property name="use-underline">True</property>
-                <property name="use-markup">False</property>
-              </object>
-            </child>
           </object>
         </child>
       </object>

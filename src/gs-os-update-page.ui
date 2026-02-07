@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsOsUpdatePage" parent="AdwNavigationPage">
     <property name="child">
-      <object class="AdwToolbarView">
-        <child type="top">
-          <object class="AdwHeaderBar"/>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar" />
         </child>
-        <property name="content">
-          <object class="AdwPreferencesPage" id="page">
-            <property name="vexpand">True</property>
+        <child>
+          <object class="GtkScrolledWindow" id="page">
+            <property name="hscrollbar-policy">never</property>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <property name="margin-top">12</property>
+                <property name="margin-bottom">12</property>
+                <property name="spacing">18</property>
+              </object>
+            </child>
           </object>
-        </property>
+        </child>
       </object>
     </property>
   </template>

@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsLicenseTile" parent="GtkWidget">
     <child>
       <object class="GtkListBox">
         <property name="selection_mode">none</property>
         <property name="valign">start</property>
-        <signal name="row-activated" handler="gs_license_tile_row_activated_cb"/>
+        <signal name="row-activated" handler="gs_license_tile_row_activated_cb" />
         <style>
-          <class name="boxed-list"/>
+          <class name="boxed-list" />
         </style>
-
         <child>
           <object class="GtkListBoxRow">
             <property name="activatable">False</property>
@@ -24,19 +22,17 @@
                 <property name="margin-bottom">14</property>
                 <property name="margin-start">14</property>
                 <property name="margin-end">14</property>
-
                 <child>
                   <object class="GtkBox">
                     <property name="halign">center</property>
                     <property name="orientation">horizontal</property>
                     <property name="spacing">8</property>
-
                     <child>
                       <object class="GsLozenge" id="lozenge0">
                         <property name="circular">True</property>
                         <property name="icon-name">community-supported-symbolic</property>
                         <style>
-                          <class name="green"/>
+                          <class name="green" />
                         </style>
                       </object>
                     </child>
@@ -45,7 +41,7 @@
                         <property name="circular">True</property>
                         <property name="icon-name">community-symbolic</property>
                         <style>
-                          <class name="green"/>
+                          <class name="green" />
                         </style>
                       </object>
                     </child>
@@ -54,7 +50,7 @@
                         <property name="circular">True</property>
                         <property name="icon-name">community-approved-symbolic</property>
                         <style>
-                          <class name="green"/>
+                          <class name="green" />
                         </style>
                       </object>
                     </child>
@@ -62,16 +58,14 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="title_label">
-                    <!-- This text is a placeholder and will be set dynamically -->
                     <property name="label">Community Built</property>
                     <attributes>
-                      <attribute name="weight" value="bold"/>
+                      <attribute name="weight" value="bold" />
                     </attributes>
                   </object>
                 </child>
                 <child>
                   <object class="GtkLabel" id="description_label">
-                    <!-- This text is a placeholder and will be set dynamically -->
                     <property name="label">This software is developed in the open by an international community, and released under the GNU GPL v3 license.\n\nYou can participate and help make it even better.</property>
                     <property name="use-markup">True</property>
                     <property name="wrap">True</property>
@@ -81,12 +75,33 @@
             </child>
           </object>
         </child>
-
         <child>
-          <object class="AdwButtonRow" id="get_involved_button_row">
-            <property name="title" translatable="yes">_Get Involved</property>
-            <property name="end-icon-name">external-link-symbolic</property>
-            <property name="use-underline">True</property>
+          <object class="GtkListBoxRow" id="get_involved_button_row">
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">12</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <property name="margin-top">12</property>
+                <property name="margin-bottom">12</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="hexpand">True</property>
+                    <property name="valign">center</property>
+                    <property name="spacing">3</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label" translatable="yes">_Get Involved</property>
+                        <property name="xalign">0</property>
+                        <property name="use-underline">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
       </object>

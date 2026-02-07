@@ -1,32 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsAppVersionHistoryDialog" parent="AdwDialog">
     <property name="title" translatable="yes">Version History</property>
     <property name="content-width">550</property>
     <property name="content-height">600</property>
     <property name="child">
-      <object class="AdwToolbarView">
-        <child type="top">
-          <object class="AdwHeaderBar"/>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar" />
         </child>
-        <property name="content">
-          <object class="AdwPreferencesPage">
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
             <child>
-              <object class="AdwPreferencesGroup">
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <property name="margin-top">12</property>
+                <property name="margin-bottom">12</property>
+                <property name="spacing">18</property>
                 <child>
-                  <object class="GtkListBox" id="listbox">
-                    <property name="selection-mode">none</property>
-                    <style>
-                      <class name="boxed-list"/>
-                    </style>
+                  <object class="GtkFrame">
+                    <child>
+                      <object class="GtkListBox">
+                        <property name="selection-mode">none</property>
+                        <style>
+                          <class name="boxed-list" />
+                        </style>
+                        <child>
+                          <object class="GtkListBox" id="listbox">
+                            <property name="selection-mode">none</property>
+                            <style>
+                              <class name="boxed-list" />
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
             </child>
           </object>
-        </property>
+        </child>
       </object>
     </property>
   </template>

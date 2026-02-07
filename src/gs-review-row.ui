@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsReviewRow" parent="GtkListBoxRow">
     <property name="activatable">False</property>
     <style>
-      <class name="review-row"/>
+      <class name="review-row" />
     </style>
     <child>
       <object class="GtkBox">
@@ -30,7 +30,7 @@
                 <property name="hexpand">True</property>
                 <property name="selectable">True</property>
                 <style>
-                  <class name="heading"/>
+                  <class name="heading" />
                 </style>
               </object>
             </child>
@@ -41,7 +41,7 @@
                 <property name="hexpand">True</property>
                 <property name="selectable">True</property>
                 <style>
-                  <class name="dim-label"/>
+                  <class name="dim-label" />
                 </style>
               </object>
             </child>
@@ -54,7 +54,7 @@
             <property name="ellipsize">end</property>
             <property name="selectable">True</property>
             <style>
-              <class name="dim-label"/>
+              <class name="dim-label" />
             </style>
           </object>
         </child>
@@ -82,9 +82,9 @@
                 <property name="halign">start</property>
                 <property name="xalign">0</property>
                 <property name="yalign">0</property>
-		<property name="visible">False</property>
+                <property name="visible">False</property>
                 <style>
-                  <class name="installed-badge"/>
+                  <class name="installed-badge" />
                 </style>
               </object>
             </child>
@@ -95,7 +95,7 @@
                 <child>
                   <object class="GtkBox" id="box_vote_buttons">
                     <style>
-                      <class name="vote-buttons"/>
+                      <class name="vote-buttons" />
                     </style>
                     <child>
                       <object class="GtkButton" id="button_like">
@@ -105,7 +105,7 @@
                         <property name="receives_default">True</property>
                         <property name="halign">end</property>
                         <style>
-                          <class name="flat"/>
+                          <class name="flat" />
                         </style>
                       </object>
                     </child>
@@ -117,7 +117,7 @@
                         <property name="receives_default">True</property>
                         <property name="halign">end</property>
                         <style>
-                          <class name="flat"/>
+                          <class name="flat" />
                         </style>
                       </object>
                     </child>
@@ -134,7 +134,7 @@
                 <property name="halign">end</property>
                 <property name="hexpand">True</property>
                 <style>
-                  <class name="flat"/>
+                  <class name="flat" />
                 </style>
               </object>
             </child>
@@ -147,8 +147,8 @@
                 <property name="halign">end</property>
                 <property name="hexpand">True</property>
                 <style>
-                  <class name="flat"/>
-                  <class name="destructive-action"/>
+                  <class name="flat" />
+                  <class name="destructive-action" />
                 </style>
               </object>
             </child>
@@ -156,20 +156,17 @@
         </child>
       </object>
     </child>
-
   </template>
-
   <object class="GtkSizeGroup" id="action_sizegroup">
     <widgets>
-      <widget name="button_report"/>
-      <widget name="button_remove"/>
+      <widget name="button_report" />
+      <widget name="button_remove" />
     </widgets>
   </object>
   <object class="GtkSizeGroup" id="useful_sizegroup">
     <widgets>
-      <widget name="button_like"/>
-      <widget name="button_dislike"/>
+      <widget name="button_like" />
+      <widget name="button_dislike" />
     </widgets>
   </object>
-
 </interface>

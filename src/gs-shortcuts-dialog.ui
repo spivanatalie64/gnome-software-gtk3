@@ -1,13 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  SPDX-License-Identifier: GPL-2.0-or-later
-  SPDX-FileCopyrightText: 2025 Automeris naranja
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="libadwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
+  <requires lib="libadwaita" version="1.0" />
   <object class="AdwShortcutsDialog" id="shortcuts_dialog">
-
     <child>
       <object class="AdwShortcutsSection">
         <property name="title" translatable="yes">Navigation</property>
@@ -43,7 +38,6 @@
         </child>
       </object>
     </child>
-
     <child>
       <object class="AdwShortcutsSection">
         <property name="title" translatable="yes">Windows</property>
@@ -67,7 +61,6 @@
         </child>
       </object>
     </child>
-
     <child>
       <object class="AdwShortcutsSection">
         <property name="title" translatable="yes">Updates Page</property>
@@ -79,7 +72,6 @@
         </child>
       </object>
     </child>
-
     <child>
       <object class="AdwShortcutsSection">
         <property name="title" translatable="yes">Help</property>
@@ -91,6 +83,5 @@
         </child>
       </object>
     </child>
-
   </object>
 </interface>

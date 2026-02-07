@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsInfoWindow" parent="AdwDialog">
     <style>
-      <class name="info"/>
+      <class name="info" />
     </style>
     <child>
-      <object class="AdwToolbarView" id="view">
-        <child type="top">
-          <object class="AdwHeaderBar">
+      <object class="GtkBox" id="view">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar">
             <property name="title-widget">
-              <object class="AdwWindowTitle">
+              <object class="GtkLabel">
+                <style>
+                  <class name="title" />
+                </style>
                 <property name="visible">False</property>
               </object>
             </property>

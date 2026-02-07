@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsExtrasPage" parent="GsPage">
     <accessibility>
       <property name="label" translatable="yes">Codecs page</property>
     </accessibility>
     <child>
       <object class="GtkStack" id="stack">
-
         <child>
           <object class="GtkStackPage">
             <property name="name">spinner</property>
@@ -21,10 +19,10 @@
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <style>
-                  <class name="dim-label"/>
+                  <class name="dim-label" />
                 </style>
                 <child>
-                  <object class="AdwSpinner" id="spinner">
+                  <object class="GtkSpinner" id="spinner">
                     <property name="width_request">64</property>
                     <property name="height_request">64</property>
                   </object>
@@ -33,7 +31,6 @@
             </property>
           </object>
         </child>
-
         <child>
           <object class="GtkStackPage">
             <property name="name">results</property>
@@ -43,13 +40,12 @@
                 <property name="hscrollbar_policy">never</property>
                 <property name="vscrollbar_policy">automatic</property>
                 <style>
-                  <class name="list-page"/>
+                  <class name="list-page" />
                 </style>
                 <child>
-                  <object class="AdwClamp">
-                    <property name="maximum-size">600</property>
-                    <!-- ~⅔ of the maximum size. -->
-                    <property name="tightening-threshold">400</property>
+                  <object class="GtkBox">
+                    <property name="halign">center</property>
+                    <property name="max-width-request">600</property>
                     <child>
                       <object class="GtkBox" id="box_results">
                         <property name="orientation">vertical</property>
@@ -59,7 +55,7 @@
                             <property name="selection_mode">none</property>
                             <property name="valign">start</property>
                             <style>
-                              <class name="boxed-list"/>
+                              <class name="boxed-list" />
                             </style>
                           </object>
                         </child>
@@ -71,31 +67,46 @@
             </property>
           </object>
         </child>
-
         <child>
           <object class="GtkStackPage">
             <property name="name">no-results</property>
             <property name="child">
-              <object class="AdwStatusPage" id="no_results_page">
-                <property name="icon-name">edit-find-symbolic</property>
-                <property name="title" translatable="yes">No Results Found</property>
+              <object class="GtkBox" id="no_results_page">
+                <property name="orientation">vertical</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">No Results Found</property>
+                    <style>
+                      <class name="title-1" />
+                    </style>
+                  </object>
+                </child>
               </object>
             </property>
           </object>
         </child>
-
         <child>
           <object class="GtkStackPage">
             <property name="name">failed</property>
             <property name="child">
-              <object class="AdwStatusPage" id="failed_page">
-                <property name="icon-name">dialog-error-symbolic</property>
-                <property name="title" translatable="yes">Unable To Perform Search</property>
+              <object class="GtkBox" id="failed_page">
+                <property name="orientation">vertical</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Unable To Perform Search</property>
+                    <style>
+                      <class name="title-1" />
+                    </style>
+                  </object>
+                </child>
               </object>
             </property>
           </object>
         </child>
-
       </object>
     </child>
   </template>

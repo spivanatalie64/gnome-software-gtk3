@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsOverviewPage" parent="GsPage">
     <accessibility>
       <property name="label" translatable="yes">Overview page</property>
     </accessibility>
     <child>
       <object class="GtkStack" id="stack_overview">
-
         <child>
           <object class="GtkStackPage">
             <property name="name">overview</property>
@@ -26,10 +24,9 @@
                         <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <child>
-                          <object class="AdwClamp">
-                            <!-- We use the same sizes as the category page. -->
-                            <property name="maximum-size">1000</property>
-                            <property name="tightening-threshold">600</property>
+                          <object class="GtkBox">
+                            <property name="halign">center</property>
+                            <property name="max-width-request">1000</property>
                             <child>
                               <object class="GtkBox">
                                 <property name="orientation">vertical</property>
@@ -39,15 +36,13 @@
                                 <property name="margin-end">12</property>
                                 <property name="valign">start</property>
                                 <property name="spacing">6</property>
-
                                 <child>
                                   <object class="GsFeaturedCarousel" id="featured_carousel">
                                     <property name="height-request">318</property>
                                     <property name="valign">start</property>
-                                    <signal name="app-clicked" handler="featured_carousel_app_clicked_cb"/>
+                                    <signal name="app-clicked" handler="featured_carousel_app_clicked_cb" />
                                   </object>
                                 </child>
-
                                 <child>
                                   <object class="GtkFlowBox" id="flowbox_categories">
                                     <property name="margin-top">21</property>
@@ -58,18 +53,17 @@
                                     <property name="min_children_per_line">1</property>
                                     <property name="max_children_per_line">3</property>
                                     <property name="selection_mode">none</property>
-                                    <signal name="child-activated" handler="category_activated_cb" swapped="yes"/>
+                                    <signal name="child-activated" handler="category_activated_cb" swapped="yes" />
                                   </object>
                                 </child>
-
                                 <child>
                                   <object class="GtkLabel" id="curated_heading">
                                     <property name="xalign">0</property>
-                                    <property name="label" translatable="yes" comments="Translators: This is a heading for software which has been featured (&apos;picked&apos;) by the distribution.">Editor’s Choice</property>
+                                    <property name="label" translatable="yes" comments="Translators: This is a heading for software which has been featured ('picked') by the distribution.">Editor’s Choice</property>
                                     <property name="margin-top">21</property>
                                     <property name="margin-bottom">6</property>
                                     <style>
-                                      <class name="heading"/>
+                                      <class name="heading" />
                                     </style>
                                   </object>
                                 </child>
@@ -80,13 +74,12 @@
                                     <property name="row-spacing">14</property>
                                     <property name="valign">start</property>
                                     <property name="selection-mode">none</property>
-                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
+                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes" />
                                     <accessibility>
                                       <relation name="labelled-by">curated_heading</relation>
                                     </accessibility>
                                   </object>
                                 </child>
-
                                 <child>
                                   <object class="GtkLabel" id="recent_heading">
                                     <property name="xalign">0</property>
@@ -94,7 +87,7 @@
                                     <property name="margin-top">21</property>
                                     <property name="margin-bottom">6</property>
                                     <style>
-                                      <class name="heading"/>
+                                      <class name="heading" />
                                     </style>
                                   </object>
                                 </child>
@@ -105,22 +98,21 @@
                                     <property name="row-spacing">14</property>
                                     <property name="valign">start</property>
                                     <property name="selection-mode">none</property>
-                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
+                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes" />
                                     <accessibility>
                                       <relation name="labelled-by">recent_heading</relation>
                                     </accessibility>
                                   </object>
                                 </child>
-
                                 <child>
                                   <object class="GtkLabel" id="deployment_featured_heading">
                                     <property name="visible">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="label">Available for Deployment</property> <!-- placeholder, set in the code -->
+                                    <property name="label">Available for Deployment</property>
                                     <property name="margin-top">21</property>
                                     <property name="margin-bottom">6</property>
                                     <style>
-                                      <class name="heading"/>
+                                      <class name="heading" />
                                     </style>
                                   </object>
                                 </child>
@@ -133,13 +125,12 @@
                                     <property name="min_children_per_line">2</property>
                                     <property name="max_children_per_line">3</property>
                                     <property name="selection_mode">none</property>
-                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
+                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes" />
                                     <accessibility>
                                       <relation name="labelled-by">deployment_featured_heading</relation>
                                     </accessibility>
                                   </object>
                                 </child>
-
                                 <child>
                                   <object class="GtkLabel" id="heading_all_apps">
                                     <property name="xalign">0</property>
@@ -148,7 +139,7 @@
                                     <property name="margin-bottom">6</property>
                                     <property name="visible">False</property>
                                     <style>
-                                      <class name="heading"/>
+                                      <class name="heading" />
                                     </style>
                                   </object>
                                 </child>
@@ -160,13 +151,12 @@
                                     <property name="row-spacing">14</property>
                                     <property name="valign">start</property>
                                     <property name="selection-mode">none</property>
-                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes"/>
+                                    <signal name="child-activated" handler="app_activated_cb" swapped="yes" />
                                     <accessibility>
                                       <relation name="labelled-by">heading_all_apps</relation>
                                     </accessibility>
                                   </object>
                                 </child>
-
                                 <child>
                                   <object class="GtkLabel" id="iconless_categories_heading">
                                     <property name="xalign">0</property>
@@ -174,7 +164,7 @@
                                     <property name="margin-top">21</property>
                                     <property name="margin-bottom">6</property>
                                     <style>
-                                      <class name="heading"/>
+                                      <class name="heading" />
                                     </style>
                                   </object>
                                 </child>
@@ -186,7 +176,7 @@
                                     <property name="min_children_per_line">1</property>
                                     <property name="max_children_per_line">3</property>
                                     <property name="selection_mode">none</property>
-                                    <signal name="child-activated" handler="category_activated_cb" swapped="yes"/>
+                                    <signal name="child-activated" handler="category_activated_cb" swapped="yes" />
                                     <accessibility>
                                       <relation name="labelled-by">iconless_categories_heading</relation>
                                     </accessibility>
@@ -194,7 +184,6 @@
                                 </child>
                               </object>
                             </child>
-
                           </object>
                         </child>
                       </object>
@@ -205,19 +194,32 @@
             </property>
           </object>
         </child>
-
         <child>
           <object class="GtkStackPage">
             <property name="name">no-results</property>
             <property name="child">
-              <object class="AdwStatusPage" id="noresults_grid_overview">
-                <property name="icon_name">org.gnome.Software-symbolic</property>
-                <property name="title" translatable="yes">No App Data Found</property>
+              <object class="GtkBox" id="noresults_grid_overview">
+                <property name="orientation">vertical</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">org.gnome.Software-symbolic</property>
+                    <property name="pixel-size">128</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">No App Data Found</property>
+                    <style>
+                      <class name="title-1" />
+                    </style>
+                  </object>
+                </child>
               </object>
             </property>
           </object>
         </child>
-
       </object>
     </child>
   </template>

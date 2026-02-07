@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
   <requires lib="gtk+" version="3.0" />
-  <template class="GsInstalledUpdatesDialog" parent="AdwDialog">
+  <template class="GsInstalledUpdatesDialog" parent="GtkDialog">
     <property name="content-width">640</property>
     <property name="content-height">576</property>
     <child>

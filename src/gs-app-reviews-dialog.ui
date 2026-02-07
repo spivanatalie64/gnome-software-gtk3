@@ -1,16 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk+" version="3.0" />  <template class="GsAppReviewsDialog" parent="AdwDialog">
+  <requires lib="gtk+" version="3.0" />  <template class="GsAppReviewsDialog" parent="GtkDialog">
     <property name="title" translatable="yes">Reviews</property>
     <property name="content-width">550</property>
     <property name="content-height">600</property>
     <property name="child">
-      <object class="AdwToastOverlay" id="toast_overlay">
+      <object class="GtkBox" id="toast_overlay">
         <property name="child">
           <object class="GtkBox">
             <property name="orientation">vertical</property>
             <child>
-              <object class="AdwHeaderBar" />
+              <object class="GtkHeaderBar" />
             </child>
             <child>
               <object class="GtkStack" id="stack">

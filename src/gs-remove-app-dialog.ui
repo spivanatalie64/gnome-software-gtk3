@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <interface>
   <requires lib="gtk+" version="3.0" />
-  <object class="AdwAlertDialog" id="dialog">
+  <object class="GtkDialog" id="dialog">
     <property name="body-use-markup">True</property>
     <property name="default-response">cancel</property>
     <property name="close-response">cancel</property>

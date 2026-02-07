@@ -9,7 +9,7 @@
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-          <object class="AdwBanner" id="banner_end_of_life" />
+          <object class="GtkInfoBar" id="banner_end_of_life" />
         </child>
         <child>
           <object class="GtkStack" id="stack_updates">

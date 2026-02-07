@@ -18,7 +18,7 @@
                 <child>
                   <object class="GtkOverlay">
                     <child>
-                      <object class="AdwCarousel" id="carousel">
+                      <object class="GtkStack" id="carousel">
                         <property name="vexpand">True</property>
                         <signal name="notify::n-pages" handler="gs_screenshot_carousel_notify_n_pages_cb" swapped="yes" />
                         <signal name="notify::position" handler="gs_screenshot_carousel_notify_position_cb" swapped="yes" />
@@ -81,7 +81,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwCarouselIndicatorDots" id="carousel_indicator">
+                  <object class="GtkStackSwitcher" id="carousel_indicator">
                     <property name="carousel">carousel</property>
                   </object>
                 </child>

@@ -30,7 +30,7 @@
                 <property name="halign">fill</property>
                 <property name="valign">fill</property>
                 <child type="overlay">
-                  <object class="AdwBin" id="bin">
+                  <object class="GtkBin" id="bin">
                     <property name="visible">False</property>
                     <property name="halign">end</property>
                     <property name="valign">start</property>

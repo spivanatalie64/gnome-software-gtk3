@@ -41,7 +41,7 @@
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="AdwBanner" id="translation_banner">
+                  <object class="GtkInfoBar" id="translation_banner">
                     <property name="button-label" translatable="yes">Help _Translate</property>
                     <signal name="button-clicked" handler="gs_details_page_translation_banner_clicked_cb" swapped="yes" />
                   </object>

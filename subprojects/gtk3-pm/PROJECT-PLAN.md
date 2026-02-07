@@ -1,6 +1,6 @@
 # GTK3 Port Project Plan
 
-Date: $(date --iso-8601=seconds)
+Date: 2026-02-07T12:19:01+00:00
 
 Overview:
 - Goal: Port gnome-software to GTK3 with minimal, surgical changes.

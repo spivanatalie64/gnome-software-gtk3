@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 
 #include "gnome-software-private.h"
 

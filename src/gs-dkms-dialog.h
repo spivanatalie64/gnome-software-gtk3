@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 #include "gs-app.h"
 
 G_BEGIN_DECLS

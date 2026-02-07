@@ -30,7 +30,7 @@
 #include "gs-common.h"
 #include "gs-star-image.h"
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 
 struct _GsStarImage
 {

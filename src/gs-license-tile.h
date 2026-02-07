@@ -12,7 +12,7 @@
 
 #include <glib.h>
 #include <glib-object.h>
-#include <adwaita.h>
+#include "adwaita-compat.h"
 
 #include "gs-app.h"
 

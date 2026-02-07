@@ -25,7 +25,7 @@
 #include <glib-object.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <adwaita.h>
+#include "adwaita-compat.h"
 #include <locale.h>
 
 #include "gs-common.h"

@@ -11,7 +11,7 @@
 
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-#include <adwaita.h>
+#include "adwaita-compat.h"
 
 #include "gs-feature-tile.h"
 #include "gs-layout-manager.h"

@@ -24,7 +24,7 @@
 
 #include "config.h"
 
-#include <adwaita.h>
+#include "adwaita-compat.h"
 #include <glib.h>
 #include <glib-object.h>
 #include <glib/gi18n.h>

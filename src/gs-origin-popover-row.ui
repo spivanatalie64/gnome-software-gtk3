@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsOriginPopoverRow" parent="GtkListBoxRow">
     <child>
       <object class="GtkBox">
@@ -23,7 +23,7 @@
                         <property name="halign">start</property>
                         <property name="ellipsize">end</property>
                         <attributes>
-                          <attribute name="weight" value="bold"/>
+                          <attribute name="weight" value="bold" />
                         </attributes>
                       </object>
                     </child>
@@ -32,8 +32,8 @@
                         <property name="halign">start</property>
                         <property name="ellipsize">end</property>
                         <style>
-                          <class name="app-row-origin-text"/>
-                          <class name="dim-label"/>
+                          <class name="app-row-origin-text" />
+                          <class name="dim-label" />
                         </style>
                       </object>
                     </child>
@@ -47,7 +47,7 @@
                     <property name="margin-start">6</property>
                     <property name="valign">center</property>
                     <style>
-                      <class name="success"/>
+                      <class name="success" />
                     </style>
                   </object>
                 </child>
@@ -63,7 +63,7 @@
                     <property name="spacing">4</property>
                     <property name="valign">center</property>
                     <style>
-                      <class name="origin-rounded-box"/>
+                      <class name="origin-rounded-box" />
                     </style>
                     <child>
                       <object class="GtkImage" id="packaging_image">
@@ -88,8 +88,8 @@
                     <property name="spacing">4</property>
                     <property name="valign">center</property>
                     <style>
-                      <class name="origin-rounded-box"/>
-                      <class name="origin-beta"/>
+                      <class name="origin-rounded-box" />
+                      <class name="origin-beta" />
                     </style>
                     <child>
                       <object class="GtkImage" id="beta_image">
@@ -115,7 +115,7 @@
                     <property name="spacing">4</property>
                     <property name="valign">center</property>
                     <style>
-                      <class name="origin-rounded-box"/>
+                      <class name="origin-rounded-box" />
                     </style>
                     <child>
                       <object class="GtkImage" id="user_scope_image">

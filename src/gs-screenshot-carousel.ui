@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsScreenshotCarousel" parent="GtkWidget">
     <property name="visible">False</property>
     <child>
       <object class="GtkStack" id="stack">
-
         <child>
           <object class="GtkStackPage">
             <property name="name">carousel</property>
@@ -14,16 +12,16 @@
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <style>
-                  <class name="frame"/>
-                  <class name="view"/>
+                  <class name="frame" />
+                  <class name="view" />
                 </style>
                 <child>
                   <object class="GtkOverlay">
                     <child>
                       <object class="AdwCarousel" id="carousel">
                         <property name="vexpand">True</property>
-                        <signal name="notify::n-pages" handler="gs_screenshot_carousel_notify_n_pages_cb" swapped="yes"/>
-                        <signal name="notify::position" handler="gs_screenshot_carousel_notify_position_cb" swapped="yes"/>
+                        <signal name="notify::n-pages" handler="gs_screenshot_carousel_notify_n_pages_cb" swapped="yes" />
+                        <signal name="notify::position" handler="gs_screenshot_carousel_notify_position_cb" swapped="yes" />
                       </object>
                     </child>
                     <child type="overlay">
@@ -40,15 +38,14 @@
                             <property name="margin-start">9</property>
                             <property name="margin-end">9</property>
                             <property name="icon-name">go-previous-symbolic</property>
-                            <signal name="clicked" handler="gs_screenshot_carousel_button_previous_clicked_cb" swapped="yes"/>
+                            <signal name="clicked" handler="gs_screenshot_carousel_button_previous_clicked_cb" swapped="yes" />
                             <accessibility>
-                              <!-- Translators: This is the accessible description for a button to go to the previous screenshot in the screenshot carousel. -->
                               <property name="label" translatable="yes">Previous Screenshot</property>
                             </accessibility>
                             <style>
-                              <class name="circular"/>
-                              <class name="image-button"/>
-                              <class name="osd"/>
+                              <class name="circular" />
+                              <class name="image-button" />
+                              <class name="osd" />
                             </style>
                           </object>
                         </child>
@@ -68,15 +65,14 @@
                             <property name="margin-start">9</property>
                             <property name="margin-end">9</property>
                             <property name="icon-name">go-next-symbolic</property>
-                            <signal name="clicked" handler="gs_screenshot_carousel_button_next_clicked_cb" swapped="yes"/>
+                            <signal name="clicked" handler="gs_screenshot_carousel_button_next_clicked_cb" swapped="yes" />
                             <accessibility>
-                              <!-- Translators: This is the accessible description for a button to go to the next screenshot in the screenshot carousel. -->
                               <property name="label" translatable="yes">Next Screenshot</property>
                             </accessibility>
                             <style>
-                              <class name="circular"/>
-                              <class name="image-button"/>
-                              <class name="osd"/>
+                              <class name="circular" />
+                              <class name="image-button" />
+                              <class name="osd" />
                             </style>
                           </object>
                         </child>
@@ -93,7 +89,6 @@
             </property>
           </object>
         </child>
-
         <child>
           <object class="GtkStackPage">
             <property name="name">fallback</property>
@@ -101,15 +96,13 @@
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <property name="spacing">12</property>
-                <!-- Arbitrary size chosen to tile together at 16:9;
-                     see https://blogs.gnome.org/hughsie/2014/07/02/blurry-screenshots-in-gnome-software/ -->
                 <property name="height_request">423</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <style>
-                  <class name="screenshot-image"/>
-                  <class name="frame"/>
-                  <class name="view"/>
+                  <class name="screenshot-image" />
+                  <class name="frame" />
+                  <class name="view" />
                 </style>
                 <child>
                   <object class="GtkImage">
@@ -118,7 +111,7 @@
                     <property name="valign">end</property>
                     <property name="vexpand">True</property>
                     <style>
-                      <class name="dim-label"/>
+                      <class name="dim-label" />
                     </style>
                   </object>
                 </child>
@@ -129,17 +122,15 @@
                     <property name="vexpand">True</property>
                     <property name="label" translatable="yes" comments="Translators: Shortened form of “no screenshots available” when showing an app’s details.">No Screenshots</property>
                     <style>
-                      <class name="title-2"/>
-                      <class name="dim-label"/>
+                      <class name="title-2" />
+                      <class name="dim-label" />
                     </style>
                   </object>
                 </child>
               </object>
-
             </property>
           </object>
         </child>
-
       </object>
     </child>
   </template>

@@ -1,20 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsRemovalDialog" parent="AdwDialog">
     <property name="title" translatable="yes">Incompatible Software</property>
     <property name="content-width">470</property>
     <property name="content-height">400</property>
     <property name="child">
-      <object class="AdwToolbarView">
-        <child type="top">
-          <object class="AdwHeaderBar">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar">
             <property name="show_start_title_buttons">False</property>
             <property name="show_end_title_buttons">False</property>
             <property name="title-widget">
-              <object class="AdwWindowTitle">
-                <property name="title" bind-source="GsRemovalDialog" bind-property="title" bind-flags="sync-create"/>
+              <object class="GtkLabel">
+                <property name="label" bind-source="GsRemovalDialog" bind-property="title" bind-flags="sync-create" />
+                <style>
+                  <class name="title" />
+                </style>
               </object>
             </property>
             <child type="start">
@@ -23,7 +26,7 @@
                 <property name="receives_default">False</property>
                 <property name="label" translatable="yes">_Cancel</property>
                 <property name="use_underline">True</property>
-                <signal name="clicked" handler="cancel_clicked_cb"/>
+                <signal name="clicked" handler="cancel_clicked_cb" />
               </object>
             </child>
             <child type="end">
@@ -32,7 +35,7 @@
                 <property name="receives_default">True</property>
                 <property name="label" translatable="yes">_Upgrade</property>
                 <property name="use_underline">True</property>
-                <signal name="clicked" handler="upgrade_clicked_cb"/>
+                <signal name="clicked" handler="upgrade_clicked_cb" />
                 <style>
                   <class name="destructive-action" />
                 </style>
@@ -40,22 +43,41 @@
             </child>
           </object>
         </child>
-        <property name="content">
-          <object class="AdwPreferencesPage" id="prefs_page">
+        <child>
+          <object class="GtkScrolledWindow" id="prefs_page">
+            <property name="hscrollbar-policy">never</property>
             <child>
-              <object class="AdwPreferencesGroup">
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
+                <property name="margin-top">12</property>
+                <property name="margin-bottom">12</property>
+                <property name="spacing">18</property>
                 <child>
-                  <object class="GtkListBox" id="listbox">
-                    <property name="selection_mode">none</property>
-                    <style>
-                      <class name="boxed-list" />
-                    </style>
+                  <object class="GtkFrame">
+                    <child>
+                      <object class="GtkListBox">
+                        <property name="selection-mode">none</property>
+                        <style>
+                          <class name="boxed-list" />
+                        </style>
+                        <child>
+                          <object class="GtkListBox" id="listbox">
+                            <property name="selection_mode">none</property>
+                            <style>
+                              <class name="boxed-list" />
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
             </child>
           </object>
-        </property>
+        </child>
       </object>
     </property>
   </template>

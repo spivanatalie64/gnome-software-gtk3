@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsReviewHistogram" parent="GtkWidget">
     <child>
       <object class="GtkGrid" id="grid1">
@@ -16,9 +16,9 @@
             <property name="valign">center</property>
             <property name="label">0</property>
             <attributes>
-              <attribute name="scale" value="5.0"/>
-              <attribute name="weight" value="light"/>
-              <attribute name="line-height" value="0.75"/>
+              <attribute name="scale" value="5.0" />
+              <attribute name="weight" value="light" />
+              <attribute name="line-height" value="0.75" />
             </attributes>
             <layout>
               <property name="column">0</property>
@@ -47,7 +47,7 @@
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <style>
-                  <class name="reviewstarvalue"/>
+                  <class name="reviewstarvalue" />
                 </style>
                 <child>
                   <object class="GsStarImage" id="star_value_1">
@@ -87,7 +87,7 @@
                 <property name="valign">center</property>
                 <property name="label" translatable="yes">out of 5 stars</property>
                 <attributes>
-                  <attribute name="scale" value="0.8"/>
+                  <attribute name="scale" value="0.8" />
                 </attributes>
               </object>
             </child>
@@ -104,7 +104,7 @@
             <property name="row-spacing">2</property>
             <property name="column-spacing">2</property>
             <style>
-              <class name="review-histogram"/>
+              <class name="review-histogram" />
             </style>
             <child>
               <object class="GsReviewBar" id="bar5">

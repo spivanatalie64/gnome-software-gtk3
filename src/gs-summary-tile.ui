@@ -1,14 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsSummaryTile" parent="GsAppTile">
     <property name="hexpand">True</property>
-    <!-- This is the minimum (sic!) width of a tile when the GtkFlowBox parent container switches to 3 columns -->
     <property name="preferred-width">270</property>
     <child>
       <object class="GtkStack" id="stack">
-
         <child>
           <object class="GtkStackPage">
             <property name="name">waiting</property>
@@ -19,13 +16,12 @@
                 <property name="pixel-size">16</property>
                 <property name="icon-name">app-info-loading-symbolic</property>
                 <style>
-                  <class name="dim-label"/>
+                  <class name="dim-label" />
                 </style>
               </object>
             </property>
           </object>
         </child>
-
         <child>
           <object class="GtkStackPage">
             <property name="name">content</property>
@@ -47,7 +43,7 @@
                         <property name="margin-end">9</property>
                         <property name="icon-name">app-installed-symbolic</property>
                         <style>
-                          <class name="success"/>
+                          <class name="success" />
                         </style>
                       </object>
                     </child>
@@ -72,8 +68,6 @@
                           <property name="column-span">1</property>
                           <property name="row-span">1</property>
                         </layout>
-
-                        <!-- Loading -->
                         <child>
                           <object class="GtkStackPage">
                             <property name="name">loading</property>
@@ -83,15 +77,13 @@
                                 <property name="halign">center</property>
                                 <property name="valign">center</property>
                                 <style>
-                                  <class name="loading-icon"/>
-                                  <class name="dim-label"/>
+                                  <class name="loading-icon" />
+                                  <class name="dim-label" />
                                 </style>
                               </object>
                             </property>
                           </object>
                         </child>
-
-                        <!-- App Icon -->
                         <child>
                           <object class="GtkStackPage">
                             <property name="name">image</property>
@@ -99,7 +91,7 @@
                               <object class="GtkImage" id="image">
                                 <property name="pixel-size">64</property>
                                 <style>
-                                  <class name="icon-dropshadow"/>
+                                  <class name="icon-dropshadow" />
                                 </style>
                               </object>
                             </property>
@@ -117,7 +109,7 @@
                             <property name="ellipsize">end</property>
                             <property name="xalign">0.0</property>
                             <attributes>
-                              <attribute name="weight" value="bold"/>
+                              <attribute name="weight" value="bold" />
                             </attributes>
                           </object>
                         </child>
@@ -146,7 +138,6 @@
             </property>
           </object>
         </child>
-
       </object>
     </child>
   </template>

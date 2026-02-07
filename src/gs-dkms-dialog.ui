@@ -1,24 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  SPDX-License-Identifier: GPL-2.0-or-later
-  SPDX-FileCopyrightText: 2024 Red Hat
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.10"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsDkmsDialog" parent="AdwDialog">
-    <property name="title" translatable="no"></property>
+    <property name="title" translatable="no" />
     <property name="content_width">550</property>
     <property name="focus-widget">i_have_made_a_note_check</property>
     <child>
-      <object class="AdwNavigationView" id="navigation_view">
+      <object class="GtkStack" id="navigation_view">
         <child>
-          <object class="AdwNavigationPage">
+          <object class="GtkBox">
             <property name="title" translatable="yes">MOK Enrollment Required</property>
             <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar">
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkHeaderBar">
                     <property name="hexpand">True</property>
                     <property name="show-back-button">False</property>
                     <property name="show-end-title-buttons">False</property>
@@ -28,7 +24,7 @@
                         <property name="label" translatable="yes">_Cancel</property>
                         <property name="can-focus">True</property>
                         <property name="use-underline">True</property>
-                        <signal name="clicked" handler="gs_dkms_dialog_cancel_button_clicked_cb"/>
+                        <signal name="clicked" handler="gs_dkms_dialog_cancel_button_clicked_cb" />
                       </object>
                     </child>
                     <child type="end">
@@ -36,13 +32,13 @@
                         <property name="label" translatable="yes">_Next</property>
                         <property name="can-focus">True</property>
                         <property name="use-underline">True</property>
-                        <property name="sensitive" bind-source="i_have_made_a_note_check" bind-property="active" bind-flags="sync-create"/>
-                        <signal name="clicked" handler="gs_dkms_dialog_next_button_clicked_cb"/>
+                        <property name="sensitive" bind-source="i_have_made_a_note_check" bind-property="active" bind-flags="sync-create" />
+                        <signal name="clicked" handler="gs_dkms_dialog_next_button_clicked_cb" />
                       </object>
                     </child>
                   </object>
                 </child>
-                <property name="content">
+                <child>
                   <object class="GtkBox">
                     <property name="orientation">vertical</property>
                     <property name="spacing">20</property>
@@ -71,26 +67,45 @@
                         <property name="use-underline">False</property>
                         <property name="justify">center</property>
                         <attributes>
-                          <attribute name="weight" value="bold"/>
-                          <attribute name="scale" value="3.0"/>
+                          <attribute name="weight" value="bold" />
+                          <attribute name="scale" value="3.0" />
                         </attributes>
                       </object>
                     </child>
                     <child>
                       <object class="GtkListBox">
                         <child>
-                          <object class="AdwActionRow">
-                            <property name="title" translatable="yes">I have made a note of the MOK _password</property>
-                            <property name="activatable-widget">i_have_made_a_note_check</property>
-                            <property name="use-underline">True</property>
-                            <property name="use-markup">False</property>
-                            <style>
-                              <class name="card"/>
-                            </style>
-                            <child type="prefix">
-                              <object class="GtkCheckButton" id="i_have_made_a_note_check">
-                                <property name="valign">center</property>
-                                <property name="active">False</property>
+                          <object class="GtkListBoxRow">
+                            <property name="activatable">True</property>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">horizontal</property>
+                                <property name="spacing">12</property>
+                                <property name="margin-start">12</property>
+                                <property name="margin-end">12</property>
+                                <property name="margin-top">12</property>
+                                <property name="margin-bottom">12</property>
+                                <child type="prefix">
+                                  <object class="GtkCheckButton" id="i_have_made_a_note_check">
+                                    <property name="valign">center</property>
+                                    <property name="active">False</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">vertical</property>
+                                    <property name="hexpand">True</property>
+                                    <property name="valign">center</property>
+                                    <property name="spacing">3</property>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="label" translatable="yes">I have made a note of the MOK _password</property>
+                                        <property name="xalign">0</property>
+                                        <property name="use-underline">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -98,19 +113,20 @@
                       </object>
                     </child>
                   </object>
-                </property>
+                </child>
               </object>
             </property>
           </object>
         </child>
         <child>
-          <object class="AdwNavigationPage">
+          <object class="GtkBox">
             <property name="title" translatable="yes">MOK Enrollment Required</property>
             <property name="tag">final-page</property>
             <property name="child">
-              <object class="AdwToolbarView">
-                <child type="top">
-                  <object class="AdwHeaderBar">
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkHeaderBar">
                     <property name="hexpand">True</property>
                     <property name="show-back-button">False</property>
                     <property name="show-end-title-buttons">False</property>
@@ -120,7 +136,7 @@
                         <property name="label" translatable="yes">_Cancel</property>
                         <property name="can-focus">True</property>
                         <property name="use-underline">True</property>
-                        <signal name="clicked" handler="gs_dkms_dialog_cancel_button_clicked_cb"/>
+                        <signal name="clicked" handler="gs_dkms_dialog_cancel_button_clicked_cb" />
                       </object>
                     </child>
                     <child type="end">
@@ -129,14 +145,14 @@
                         <property name="can-focus">True</property>
                         <property name="use-underline">True</property>
                         <style>
-                          <class name="destructive-action"/>
+                          <class name="destructive-action" />
                         </style>
-                        <signal name="clicked" handler="gs_dkms_dialog_apply_button_clicked_cb"/>
+                        <signal name="clicked" handler="gs_dkms_dialog_apply_button_clicked_cb" />
                       </object>
                     </child>
                   </object>
                 </child>
-                <property name="content">
+                <child>
                   <object class="GtkBox">
                     <property name="orientation">vertical</property>
                     <property name="spacing">20</property>
@@ -156,8 +172,8 @@
                         <property name="max-width-chars">60</property>
                         <property name="wrap">True</property>
                         <attributes>
-                          <attribute name="weight" value="bold"/>
-                          <attribute name="scale" value="1.2"/>
+                          <attribute name="weight" value="bold" />
+                          <attribute name="scale" value="1.2" />
                         </attributes>
                       </object>
                     </child>
@@ -202,7 +218,7 @@
                             <property name="icon-name">warning-outline-symbolic</property>
                             <property name="margin-bottom">6</property>
                             <style>
-                              <class name="dim-label"/>
+                              <class name="dim-label" />
                             </style>
                           </object>
                         </child>
@@ -218,8 +234,8 @@
                             <property name="max-width-chars">60</property>
                             <property name="wrap">True</property>
                             <attributes>
-                              <attribute name="weight" value="bold"/>
-                              <attribute name="scale" value="1.2"/>
+                              <attribute name="weight" value="bold" />
+                              <attribute name="scale" value="1.2" />
                             </attributes>
                           </object>
                         </child>
@@ -241,7 +257,7 @@
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="label" translatable="yes">Further guidance can be found on the &lt;a href=&quot;https://docs.fedoraproject.org/en-US/quick-docs/mok-enrollment/&quot;&gt;docs page&lt;/a&gt;.</property>
+                        <property name="label" translatable="yes">Further guidance can be found on the &lt;a href="https://docs.fedoraproject.org/en-US/quick-docs/mok-enrollment/"&gt;docs page&lt;/a&gt;.</property>
                         <property name="hexpand">False</property>
                         <property name="halign">start</property>
                         <property name="use-markup">True</property>
@@ -253,7 +269,7 @@
                       </object>
                     </child>
                   </object>
-                </property>
+                </child>
               </object>
             </property>
           </object>

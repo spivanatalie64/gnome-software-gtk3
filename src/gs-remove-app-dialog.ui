@@ -1,11 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-  <!--
-  SPDX-License-Identifier: GPL-2.0-or-later
-  SPDX-FileCopyrightText: 2024 GNOME
--->
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <object class="AdwAlertDialog" id="dialog">
     <property name="body-use-markup">True</property>
     <property name="default-response">cancel</property>
@@ -15,34 +10,102 @@
       <response id="uninstall" translatable="yes" appearance="destructive">_Uninstall</response>
     </responses>
     <child type="extra-child">
-      <object class="AdwPreferencesGroup" id="preferences_group">
-        <property name="title" translatable="yes">App Settings &amp;amp; Data</property>
+      <object class="GtkFrame" id="preferences_group">
+        <property name="label" translatable="yes">App Settings &amp;amp; Data</property>
         <child>
-          <object class="AdwActionRow">
-            <property name="title" translatable="yes" comments="Translators: this is part of section about deleting app's data, where the 'keep' means 'keep the data'">_Keep</property>
-            <property name="subtitle" translatable="yes">Allows restoring app settings and content</property>
-            <property name="use-underline">True</property>
-            <property name="use-markup">False</property>
-            <property name="activatable-widget">check_keep</property>
-            <child type="prefix">
-              <object class="GtkCheckButton" id="check_keep">
-                <property name="valign">center</property>
-                <property name="active">True</property>
+          <object class="GtkListBox">
+            <property name="selection-mode">none</property>
+            <style>
+              <class name="boxed-list" />
+            </style>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">True</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">horizontal</property>
+                    <property name="spacing">12</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
+                    <property name="margin-top">12</property>
+                    <property name="margin-bottom">12</property>
+                    <child type="prefix">
+                      <object class="GtkCheckButton" id="check_keep">
+                        <property name="valign">center</property>
+                        <property name="active">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="hexpand">True</property>
+                        <property name="valign">center</property>
+                        <property name="spacing">3</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes" comments="Translators: this is part of section about deleting app's data, where the 'keep' means 'keep the data'">_Keep</property>
+                            <property name="xalign">0</property>
+                            <property name="use-underline">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Allows restoring app settings and content</property>
+                            <property name="xalign">0</property>
+                            <style>
+                              <class name="dim-label" />
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
-          </object>
-        </child>
-        <child>
-          <object class="AdwActionRow">
-            <property name="title" translatable="yes" comments="Translators: this is part of section about deleting app's data">_Delete</property>
-            <property name="subtitle" translatable="yes">Permanently deletes data to save disk space</property>
-            <property name="use-underline">True</property>
-            <property name="use-markup">False</property>
-            <property name="activatable-widget">check_delete</property>
-            <child type="prefix">
-              <object class="GtkCheckButton" id="check_delete">
-                <property name="valign">center</property>
-                <property name="group">check_keep</property>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="activatable">True</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">horizontal</property>
+                    <property name="spacing">12</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
+                    <property name="margin-top">12</property>
+                    <property name="margin-bottom">12</property>
+                    <child type="prefix">
+                      <object class="GtkCheckButton" id="check_delete">
+                        <property name="valign">center</property>
+                        <property name="group">check_keep</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">vertical</property>
+                        <property name="hexpand">True</property>
+                        <property name="valign">center</property>
+                        <property name="spacing">3</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes" comments="Translators: this is part of section about deleting app's data">_Delete</property>
+                            <property name="xalign">0</property>
+                            <property name="use-underline">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label" translatable="yes">Permanently deletes data to save disk space</property>
+                            <property name="xalign">0</property>
+                            <style>
+                              <class name="dim-label" />
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.0" />
   <template class="GsFeatureTile" parent="GtkButton">
     <property name="halign">fill</property>
     <style>
-      <class name="featured-tile"/>
+      <class name="featured-tile" />
     </style>
     <child>
       <object class="GtkStack" id="stack">
-
         <child>
           <object class="GtkStackPage">
             <property name="name">waiting</property>
@@ -20,13 +18,12 @@
                 <property name="pixel-size">16</property>
                 <property name="icon-name">app-info-loading-symbolic</property>
                 <style>
-                  <class name="dim-label"/>
+                  <class name="dim-label" />
                 </style>
               </object>
             </property>
           </object>
         </child>
-
         <child>
           <object class="GtkStackPage">
             <property name="name">content</property>
@@ -41,7 +38,7 @@
                 <child>
                   <object class="GtkImage" id="image">
                     <style>
-                      <class name="icon-dropshadow"/>
+                      <class name="icon-dropshadow" />
                     </style>
                   </object>
                 </child>
@@ -53,14 +50,14 @@
                     <property name="vexpand">True</property>
                     <property name="ellipsize">end</property>
                     <style>
-                      <class name="title-1"/>
+                      <class name="title-1" />
                     </style>
                   </object>
                 </child>
                 <child>
-                  <object class="AdwClamp">
-                    <property name="maximum-size">350</property>
-                    <property name="tightening-threshold">350</property>
+                  <object class="GtkBox">
+                    <property name="halign">center</property>
+                    <property name="max-width-request">350</property>
                     <child>
                       <object class="GtkLabel" id="subtitle">
                         <property name="ellipsize">end</property>
@@ -69,7 +66,7 @@
                         <property name="lines">1</property>
                         <property name="justify">center</property>
                         <style>
-                          <class name="caption"/>
+                          <class name="caption" />
                         </style>
                       </object>
                     </child>
@@ -79,7 +76,6 @@
             </property>
           </object>
         </child>
-
       </object>
     </child>
   </template>

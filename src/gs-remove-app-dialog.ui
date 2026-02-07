@@ -4,9 +4,7 @@
   SPDX-FileCopyrightText: 2024 GNOME
 -->
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <object class="AdwAlertDialog" id="dialog">
+  <requires lib="gtk+" version="3.0"/>  <object class="GtkMessageDialog" id="dialog">
     <property name="body-use-markup">True</property>
     <property name="default-response">cancel</property>
     <property name="close-response">cancel</property>
@@ -15,10 +13,12 @@
       <response id="uninstall" translatable="yes" appearance="destructive">_Uninstall</response>
     </responses>
     <child type="extra-child">
-      <object class="AdwPreferencesGroup" id="preferences_group">
+      <object class="GtkBox" id="preferences_group">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
         <property name="title" translatable="yes">App Settings &amp;amp; Data</property>
         <child>
-          <object class="AdwActionRow">
+          <object class="GtkListBoxRow">
             <property name="title" translatable="yes" comments="Translators: this is part of section about deleting app's data, where the 'keep' means 'keep the data'">_Keep</property>
             <property name="subtitle" translatable="yes">Allows restoring app settings and content</property>
             <property name="use-underline">True</property>
@@ -33,7 +33,7 @@
           </object>
         </child>
         <child>
-          <object class="AdwActionRow">
+          <object class="GtkListBoxRow">
             <property name="title" translatable="yes" comments="Translators: this is part of section about deleting app's data">_Delete</property>
             <property name="subtitle" translatable="yes">Permanently deletes data to save disk space</property>
             <property name="use-underline">True</property>

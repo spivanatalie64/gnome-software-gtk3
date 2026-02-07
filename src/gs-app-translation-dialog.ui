@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsAppTranslationDialog" parent="GsInfoWindow">
-    <property name="title" translatable="yes">Translations</property>
-    <property name="content-width">480</property>
-    <child>
-      <object class="AdwPreferencesPage">
+  <requires lib="gtk+" version="3.0"/>  <template class="GsAppTranslationDialog" parent="GsInfoWindow">
+    <property name="title" translatable="yes">Translations</property>    <child>
+      <object class="GtkBox">
+    <property name="orientation">vertical</property>
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
 
             <child>
               <object class="GtkBox">
@@ -27,9 +26,7 @@
 
                     <child>
                       <object class="GsLozenge" id="lozenge">
-                        <property name="circular">True</property>
-                        <property name="icon-name">translations-symbolic</property>
-                        <property name="pixel-size">24</property>
+                        <property name="circular">True</property>                        <property name="pixel-size">24</property>
                         <style>
                           <class name="large"/>
                           <class name="blue"/>
@@ -90,9 +87,7 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkImage">
-                            <property name="icon-name">external-link-symbolic</property>
-                          </object>
+                          <object class="GtkImage">                          </object>
                         </child>
 
                       </object>

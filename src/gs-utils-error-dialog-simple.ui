@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="AdwDialog" id="dialog">
-    <property name="title" translatable="yes">Error Details</property>
-    <property name="content-width">500</property>
-    <property name="content-height">350</property>
-    <property name="child">
-      <object class="AdwToolbarView">
+  <requires lib="gtk+" version="3.0"/>
+  <object class="GtkDialog" id="dialog">
+    <property name="title" translatable="yes">Error Details</property>    <property name="child">
+      <object class="GtkBox">
+    <property name="orientation">vertical</property>
         <child type="top">
-          <object class="AdwHeaderBar"/>
+          <object class="GtkHeaderBar"/>
         </child>
         <property name="content">
-          <object class="AdwToastOverlay" id="toast_overlay">
+          <object class="GtkOverlay" id="toast_overlay">
             <property name="child">
-              <object class="AdwPreferencesPage">
+              <object class="GtkBox">
+    <property name="orientation">vertical</property>
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
                     <child>
                       <object class="GtkLabel" id="label">
                         <property name="wrap">True</property>
@@ -27,13 +29,13 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
                     <property name="title" translatable="yes">Details</property>
                     <property name="header-suffix">
                       <object class="GtkButton" id="button">
-                        <property name="tooltip-text" translatable="yes">Copy Details</property>
-                        <property name="icon-name">edit-copy-symbolic</property>
-                        <property name="valign">center</property>
+                        <property name="tooltip-text" translatable="yes">Copy Details</property>                        <property name="valign">center</property>
                         <style>
                           <class name="flat"/>
                         </style>
@@ -41,9 +43,7 @@
                     </property>
                     <child>
                       <object class="GtkScrolledWindow">
-                        <property name="vexpand">True</property>
-                        <property name="overflow">hidden</property>
-                        <style>
+                        <property name="vexpand">True</property>                        <style>
                           <class name="card"/>
                         </style>
                         <child>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.0"/>
   <template class="GsCategoryTile" parent="GtkFlowBoxChild">
     <style>
       <class name="card"/>
@@ -15,7 +15,7 @@
         <child>
           <object class="GtkImage" id="image">
             <!-- Placeholder; the actual icon is set in code -->
-            <property name="icon_name">folder-music-symbolic</property>
+            <property name="icon-name">folder-music-symbolic</property>
             <property name="icon_size">large</property><!-- GTK_ICON_SIZE_LARGE -->
             <style>
               <class name="icon-dropshadow"/>

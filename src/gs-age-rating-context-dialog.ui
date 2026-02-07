@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsAgeRatingContextDialog" parent="GsInfoWindow">
-    <property name="title" translatable="yes" comments="Translators: This is the title of the dialog which contains information about the suitability of an app for different ages.">Age Rating</property>
-    <property name="content-width">640</property>
-    <property name="content-height">576</property>
-    <child>
-      <object class="AdwPreferencesPage">
+  <requires lib="gtk+" version="3.0"/>  <template class="GsAgeRatingContextDialog" parent="GsInfoWindow">
+    <property name="title" translatable="yes" comments="Translators: This is the title of the dialog which contains information about the suitability of an app for different ages.">Age Rating</property>    <child>
+      <object class="GtkBox">
+    <property name="orientation">vertical</property>
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
@@ -42,7 +40,9 @@
           </object>
         </child>
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
             <child>
               <object class="GtkListBox" id="attributes_list">
                 <property name="selection_mode">none</property>
@@ -55,9 +55,11 @@
           </object>
         </child>
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
             <child>
-              <object class="AdwButtonRow">
+              <object class="GtkButton">
                 <property name="title" translatable="yes">_How to contribute missing information</property>
                 <property name="end-icon-name">external-link-symbolic</property>
                 <property name="use-underline">True</property>

@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsBasicAuthDialog" parent="AdwDialog">
-    <property name="title" translatable="yes">Login Required</property>
-    <property name="content-width">360</property>
-    <property name="default-widget">login_button</property>
+  <requires lib="gtk+" version="3.0"/>  <template class="GsBasicAuthDialog" parent="GtkDialog">
+    <property name="title" translatable="yes">Login Required</property>    <property name="default-widget">login_button</property>
     <signal name="closed" handler="close_cb" object="GsBasicAuthDialog" swapped="yes"/>
     <property name="child">
-      <object class="AdwToolbarView">
+      <object class="GtkBox">
+    <property name="orientation">vertical</property>
         <child type="top">
-          <object class="AdwHeaderBar">
+          <object class="GtkHeaderBar">
             <property name="show_start_title_buttons">False</property>
             <property name="show_end_title_buttons">False</property>
             <child type="start">
               <object class="GtkButton" id="cancel_button">
                 <property name="label" translatable="yes">_Cancel</property>
-                <property name="receives_default">True</property>
-                <property name="use_underline">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-underline">True</property>
                 <property name="valign">center</property>
                 <signal name="clicked" handler="cancel_button_clicked_cb" object="GsBasicAuthDialog" swapped="yes"/>
               </object>
@@ -25,8 +22,8 @@
             <child type="end">
               <object class="GtkButton" id="login_button">
                 <property name="label" translatable="yes">_Login</property>
-                <property name="receives_default">True</property>
-                <property name="use_underline">True</property>
+                <property name="receives-default">True</property>
+                <property name="use-underline">True</property>
                 <property name="valign">center</property>
                 <signal name="clicked" handler="login_button_clicked_cb" object="GsBasicAuthDialog" swapped="yes"/>
                 <style>
@@ -37,23 +34,26 @@
           </object>
         </child>
         <property name="content">
-          <object class="AdwPreferencesPage" id="page">
+          <object class="GtkBox" id="page">
+    <property name="orientation">vertical</property>
             <child>
-              <object class="AdwPreferencesGroup">
+              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
                 <child>
-                  <object class="AdwEntryRow" id="user_entry">
+                  <object class="GtkEntry" id="user_entry">
                     <property name="title" translatable="yes" comments="Translators: Title for a login entry.">_User</property>
                     <property name="use-underline">True</property>
-                    <property name="activates_default">True</property>
+                    <property name="activates-default">True</property>
                     <signal name="changed" handler="dialog_validate" object="GsBasicAuthDialog" swapped="yes"/>
                     <signal name="entry-activated" handler="dialog_validate" object="GsBasicAuthDialog" swapped="yes"/>
                   </object>
                 </child>
                 <child>
-                  <object class="AdwPasswordEntryRow" id="password_entry">
+                  <object class="GtkEntry" id="password_entry">
                     <property name="title" translatable="yes" comments="Translators: Title for a login entry.">_Password</property>
                     <property name="use-underline">True</property>
-                    <property name="activates_default">True</property>
+                    <property name="activates-default">True</property>
                     <property name="input_purpose">password</property>
                     <signal name="changed" handler="dialog_validate" object="GsBasicAuthDialog" swapped="yes"/>
                     <signal name="entry-activated" handler="dialog_validate" object="GsBasicAuthDialog" swapped="yes"/>

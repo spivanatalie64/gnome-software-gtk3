@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.0"/>
   <template class="GsScreenshotImage" parent="GtkWidget">
     <accessibility>
       <property name="label" translatable="yes">Screenshot</property>
@@ -13,9 +13,9 @@
         <property name="halign">fill</property>
         <property name="valign">fill</property>
         <child type="overlay">
-          <object class="AdwSpinner" id="spinner">
-            <property name="width_request">32</property>
-            <property name="height_request">32</property>
+          <object class="GtkSpinner" id="spinner">
+            <property name="width-request">32</property>
+            <property name="height-request">32</property>
           </object>
         </child>
         <child>
@@ -75,9 +75,7 @@
                     <property name="orientation">vertical</property>
                     <property name="spacing">4</property>
                     <child>
-                      <object class="GtkImage" id="image_error">
-                        <property name="icon-name">dialog-error-symbolic</property>
-                        <property name="pixel-size">48</property>
+                      <object class="GtkImage" id="image_error">                        <property name="pixel-size">48</property>
                       </object>
                     </child>
                     <child>

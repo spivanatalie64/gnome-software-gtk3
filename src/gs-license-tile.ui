@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsLicenseTile" parent="GtkWidget">
+  <requires lib="gtk+" version="3.0"/>  <template class="GsLicenseTile" parent="GtkWidget">
     <child>
       <object class="GtkListBox">
         <property name="selection_mode">none</property>
@@ -33,27 +31,21 @@
 
                     <child>
                       <object class="GsLozenge" id="lozenge0">
-                        <property name="circular">True</property>
-                        <property name="icon-name">community-supported-symbolic</property>
-                        <style>
+                        <property name="circular">True</property>                        <style>
                           <class name="green"/>
                         </style>
                       </object>
                     </child>
                     <child>
                       <object class="GsLozenge" id="lozenge1">
-                        <property name="circular">True</property>
-                        <property name="icon-name">community-symbolic</property>
-                        <style>
+                        <property name="circular">True</property>                        <style>
                           <class name="green"/>
                         </style>
                       </object>
                     </child>
                     <child>
                       <object class="GsLozenge" id="lozenge2">
-                        <property name="circular">True</property>
-                        <property name="icon-name">community-approved-symbolic</property>
-                        <style>
+                        <property name="circular">True</property>                        <style>
                           <class name="green"/>
                         </style>
                       </object>
@@ -83,7 +75,7 @@
         </child>
 
         <child>
-          <object class="AdwButtonRow" id="get_involved_button_row">
+          <object class="GtkButton" id="get_involved_button_row">
             <property name="title" translatable="yes">_Get Involved</property>
             <property name="end-icon-name">external-link-symbolic</property>
             <property name="use-underline">True</property>

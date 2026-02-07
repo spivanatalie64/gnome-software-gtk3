@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsSummaryTile" parent="GsAppTile">
+  <requires lib="gtk+" version="3.0"/>  <template class="GsSummaryTile" parent="GsAppTile">
     <property name="hexpand">True</property>
     <!-- This is the minimum (sic!) width of a tile when the GtkFlowBox parent container switches to 3 columns -->
     <property name="preferred-width">270</property>
@@ -16,9 +14,7 @@
               <object class="GtkImage" id="waiting">
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="pixel-size">16</property>
-                <property name="icon-name">app-info-loading-symbolic</property>
-                <style>
+                <property name="pixel-size">16</property>                <style>
                   <class name="dim-label"/>
                 </style>
               </object>
@@ -34,7 +30,7 @@
                 <property name="halign">fill</property>
                 <property name="valign">fill</property>
                 <child type="overlay">
-                  <object class="AdwBin" id="bin">
+                  <object class="GtkBin" id="bin">
                     <property name="visible">False</property>
                     <property name="halign">end</property>
                     <property name="valign">start</property>
@@ -44,9 +40,7 @@
                         <property name="valign">center</property>
                         <property name="pixel-size">16</property>
                         <property name="margin-top">9</property>
-                        <property name="margin-end">9</property>
-                        <property name="icon-name">app-installed-symbolic</property>
-                        <style>
+                        <property name="margin-end">9</property>                        <style>
                           <class name="success"/>
                         </style>
                       </object>

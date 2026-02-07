@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.0"/>
   <template class="GsRepoRow" parent="GtkListBoxRow">
     <child>
       <object class="GtkGrid">
@@ -67,7 +67,7 @@
         <child>
           <object class="GtkButton" id="remove_button">
             <property name="visible">False</property>
-            <property name="can_focus">True</property>
+            <property name="can-focus">True</property>
             <property name="halign">end</property>
             <property name="valign">center</property>
             <property name="hexpand">False</property>
@@ -82,7 +82,7 @@
         </child>
         <child>
           <object class="GtkSwitch" id="disable_switch">
-            <property name="can_focus">True</property>
+            <property name="can-focus">True</property>
             <property name="halign">end</property>
             <property name="valign">center</property>
             <property name="hexpand">False</property>

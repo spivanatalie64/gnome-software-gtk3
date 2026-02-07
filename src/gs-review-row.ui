@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk+" version="3.0"/>
   <template class="GsReviewRow" parent="GtkListBoxRow">
     <property name="activatable">False</property>
     <style>
@@ -61,11 +61,11 @@
         <child>
           <object class="GtkLabel" id="text_label">
             <property name="halign">start</property>
-            <property name="margin_top">10</property>
-            <property name="margin_bottom">8</property>
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">8</property>
             <property name="label">Best overall 3D app I've ever used overall 3D app I've ever used. Best overall 3D app I've ever used overall 3D app I've ever used. Best overall 3D app I've ever used overall 3D app I've ever used. Best overall 3D app I've ever used overall 3D app I've ever used.</property>
             <property name="wrap">True</property>
-            <property name="max_width_chars">80</property>
+            <property name="max-width-chars">80</property>
             <property name="xalign">0</property>
             <property name="wrap-mode">word-char</property>
             <property name="selectable">True</property>
@@ -99,10 +99,8 @@
                     </style>
                     <child>
                       <object class="GtkButton" id="button_like">
-                        <property name="tooltip-text" translatable="yes">Like Review</property>
-                        <property name="icon-name">review-rate-positive-symbolic</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
+                        <property name="tooltip-text" translatable="yes">Like Review</property>                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
                         <property name="halign">end</property>
                         <style>
                           <class name="flat"/>
@@ -111,10 +109,8 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="button_dislike">
-                        <property name="tooltip-text" translatable="yes">Dislike Review</property>
-                        <property name="icon-name">review-rate-negative-symbolic</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
+                        <property name="tooltip-text" translatable="yes">Dislike Review</property>                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
                         <property name="halign">end</property>
                         <style>
                           <class name="flat"/>
@@ -127,10 +123,8 @@
             </child>
             <child>
               <object class="GtkButton" id="button_report">
-                <property name="tooltip-text" translatable="yes">Report…</property>
-                <property name="icon-name">review-report-symbolic</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="tooltip-text" translatable="yes">Report…</property>                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="hexpand">True</property>
                 <style>
@@ -140,10 +134,8 @@
             </child>
             <child>
               <object class="GtkButton" id="button_remove">
-                <property name="tooltip-text" translatable="yes">Remove…</property>
-                <property name="icon-name">user-trash-symbolic</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="tooltip-text" translatable="yes">Remove…</property>                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
                 <property name="halign">end</property>
                 <property name="hexpand">True</property>
                 <style>

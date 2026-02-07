@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsDetailsPage" parent="GsPage">
+  <requires lib="gtk+" version="3.0"/>  <template class="GsDetailsPage" parent="GsPage">
     <accessibility>
       <property name="label" translatable="yes">Details page</property>
     </accessibility>
@@ -13,9 +11,13 @@
           <object class="GtkStackPage">
             <property name="name">spinner</property>
             <property name="child">
-              <object class="AdwStatusPage">
+              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">12</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>
                 <property name="paintable">
-                  <object class="AdwSpinnerPaintable">
+                  <object class="GtkSpinner">
                     <property name="widget">GsDetailsPage</property>
                   </object>
                 </property>
@@ -32,7 +34,7 @@
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="AdwBanner" id="translation_banner">
+                  <object class="GtkInfoBar" id="translation_banner">
                     <property name="button-label" translatable="yes">Help _Translate</property>
                     <signal name="button-clicked" handler="gs_details_page_translation_banner_clicked_cb" swapped="yes"/>
                   </object>
@@ -40,7 +42,7 @@
 
                 <child>
                   <object class="GtkScrolledWindow" id="scrolledwindow_details">
-                    <property name="can_focus">True</property>
+                    <property name="can-focus">True</property>
                     <property name="hscrollbar_policy">automatic</property>
                     <property name="vscrollbar_policy">automatic</property>
                     <child>
@@ -58,7 +60,9 @@
                               <class name="details-page"/>
                             </style>
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -96,7 +100,7 @@
                                                 <property name="xalign">0</property>
                                                 <property name="selectable">True</property>
                                                 <property name="wrap">True</property>
-                                                <property name="max_width_chars">20</property>
+                                                <property name="max-width-chars">20</property>
                                                 <style>
                                                   <class name="app-title"/>
                                                   <class name="title-1"/>
@@ -136,9 +140,7 @@
                                                 <property name="orientation">horizontal</property>
                                                 <child>
                                                   <object class="GtkImage" id="developer_verified_image">
-                                                    <property name="pixel-size">16</property>
-                                                    <property name="icon-name">app-verified-symbolic</property>
-                                                  </object>
+                                                    <property name="pixel-size">16</property>                                                  </object>
                                                 </child>
                                                 <child>
                                                   <object class="GtkLabel" id="developer_verified_label">
@@ -170,7 +172,7 @@
                                                 </child>
                                                 <child>
                                                   <object class="GtkLabel" id="label_review_count">
-                                                    <property name="margin_start">5</property>
+                                                    <property name="margin-start">5</property>
                                                     <property name="halign">start</property>
                                                     <property name="valign">center</property>
                                                     <style>
@@ -199,11 +201,11 @@
                                                 <child>
                                                   <object class="GtkButton" id="button_install">
                                                     <property name="visible">False</property>
-                                                    <property name="use_underline">True</property>
+                                                    <property name="use-underline">True</property>
                                                     <property name="label" translatable="yes">_Install</property>
-                                                    <property name="width_request">105</property>
-                                                    <property name="can_focus">True</property>
-                                                    <property name="receives_default">True</property>
+                                                    <property name="width-request">105</property>
+                                                    <property name="can-focus">True</property>
+                                                    <property name="receives-default">True</property>
                                                     <property name="halign">fill</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="valign">center</property>
@@ -215,11 +217,11 @@
                                                 </child>
                                                 <child>
                                                   <object class="GtkButton" id="button_details_launch">
-                                                    <property name="can_focus">True</property>
+                                                    <property name="can-focus">True</property>
                                                     <!-- TRANSLATORS: A label for a button to execute the selected app. -->
                                                     <property name="label" translatable="yes">_Open</property>
-                                                    <property name="use_underline">True</property>
-                                                    <property name="width_request">105</property>
+                                                    <property name="use-underline">True</property>
+                                                    <property name="width-request">105</property>
                                                     <property name="halign">fill</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="valign">center</property>
@@ -232,11 +234,11 @@
                                                 <child>
                                                   <object class="GtkButton" id="button_update">
                                                     <property name="visible">False</property>
-                                                    <property name="use_underline">True</property>
+                                                    <property name="use-underline">True</property>
                                                     <property name="label" translatable="yes">_Update</property>
-                                                    <property name="width_request">105</property>
-                                                    <property name="can_focus">True</property>
-                                                    <property name="receives_default">True</property>
+                                                    <property name="width-request">105</property>
+                                                    <property name="can-focus">True</property>
+                                                    <property name="receives-default">True</property>
                                                     <property name="halign">fill</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="valign">center</property>
@@ -246,18 +248,16 @@
                                                 <child>
                                                   <object class="GtkButton" id="button_remove">
                                                     <property name="visible">False</property>
-                                                    <property name="can_focus">True</property>
-                                                    <property name="receives_default">True</property>
+                                                    <property name="can-focus">True</property>
+                                                    <property name="receives-default">True</property>
                                                     <property name="halign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="valign">center</property>
                                                     <property name="tooltip-text" translatable="yes">Uninstall</property>
-                                                    <property name="use_underline">True</property>
+                                                    <property name="use-underline">True</property>
                                                     <signal name="clicked" handler="gs_details_page_app_remove_button_cb"/>
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">user-trash-symbolic</property>
-                                                      </object>
+                                                      <object class="GtkImage">                                                      </object>
                                                     </child>
                                                     <accessibility>
                                                       <!-- TRANSLATORS: button text in the header when an app can be erased -->
@@ -280,17 +280,17 @@
                                                   <object class="GtkCenterBox">
                                                     <property name="visible" bind-source="button_cancel" bind-property="visible" bind-flags="sync-create"/>
                                                     <property name="orientation">vertical</property>
-                                                    <property name="width_request">105</property>
+                                                    <property name="width-request">105</property>
                                                     <property name="halign">center</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="valign">center</property>
                                                     <child type="center">
                                                       <object class="GsProgressButton" id="button_cancel">
                                                         <property name="visible">False</property>
-                                                        <property name="use_underline">True</property>
+                                                        <property name="use-underline">True</property>
                                                         <property name="label" translatable="yes">_Cancel</property>
-                                                        <property name="can_focus">True</property>
-                                                        <property name="receives_default">True</property>
+                                                        <property name="can-focus">True</property>
+                                                        <property name="receives-default">True</property>
                                                         <property name="valign">center</property>
                                                         <property name="margin-bottom">3</property>
                                                         <signal name="clicked" handler="gs_details_page_app_cancel_button_cb"/>
@@ -338,7 +338,7 @@
                                                 <property name="visible" bind-source="button_cancel" bind-property="visible" bind-flags="sync-create|invert-boolean"/>
                                                 <child>
                                                   <object class="GtkMenuButton" id="origin_button">
-                                                    <property name="can_focus">True</property>
+                                                    <property name="can-focus">True</property>
                                                     <property name="sensitive">True</property>
                                                     <property name="always-show-arrow">True</property>
                                                     <property name="popover">origin_popover</property>
@@ -355,7 +355,7 @@
                                                         <child>
                                                           <object class="GtkImage" id="origin_packaging_image">
                                                             <property name="pixel_size">16</property>
-                                                            <property name="icon_name">package-generic-symbolic</property>
+                                                            <property name="icon-name">package-generic-symbolic</property>
                                                             <property name="valign">center</property>
                                                           </object>
                                                         </child>
@@ -391,7 +391,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -421,7 +423,7 @@
                                         <property name="hexpand">True</property>
                                         <property name="valign">start</property>
                                         <property name="visible">FALSE</property>
-                                        <property name="margin_bottom">14</property>
+                                        <property name="margin-bottom">14</property>
                                       </object>
                                     </child>
                                   </object>
@@ -430,7 +432,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -443,7 +447,7 @@
                                     <child>
                                       <object class="GtkBox" id="box_addons_title">
                                         <property name="orientation">vertical</property>
-                                        <property name="margin_bottom">12</property>
+                                        <property name="margin-bottom">12</property>
                                         <child>
                                           <object class="GtkLabel" id="label_addons_title">
                                             <property name="halign">start</property>
@@ -474,7 +478,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -488,7 +494,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -508,7 +516,7 @@
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="AdwButtonRow" id="version_history_button_row">
+                                      <object class="GtkButton" id="version_history_button_row">
                                         <property name="title" translatable="yes">Version History</property>
                                         <property name="end-icon-name">go-next-symbolic</property>
                                       </object>
@@ -519,7 +527,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="infobar_details_eol" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -557,7 +567,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="infobar_details_problems_label" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -588,7 +600,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="label_webapp_warning" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -613,7 +627,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="infobar_details_app_repo" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -651,7 +667,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="infobar_details_app_norepo" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -689,7 +707,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="infobar_details_package_baseos" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -720,7 +740,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="infobar_details_repo" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -765,7 +787,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="infobar_app_data" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -786,22 +810,20 @@
                                     </child>
                                     <child>
                                       <object class="GtkButton" id="infobar_app_data_clear_button">
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">False</property>
+                                        <property name="can-focus">True</property>
+                                        <property name="receives-default">False</property>
                                         <property name="halign">end</property>
                                         <property name="hexpand">False</property>
                                         <property name="valign">center</property>
                                         <property name="tooltip-text" translatable="yes">Clear app data</property>
-                                        <property name="use_underline">True</property>
+                                        <property name="use-underline">True</property>
                                         <signal name="clicked" handler="gs_details_page_app_data_clear_button_cb"/>
                                         <child>
                                           <object class="GtkBox">
                                             <property name="orientation">horizontal</property>
                                             <property name="spacing">4</property>
                                             <child>
-                                              <object class="GtkImage">
-                                                <property name="icon-name">user-trash-symbolic</property>
-                                              </object>
+                                              <object class="GtkImage">                                              </object>
                                             </child>
                                             <child>
                                               <object class="GtkLabel">
@@ -826,7 +848,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -876,9 +900,7 @@
                                                     </style>
 
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">dialog-question-symbolic</property>
-                                                        <property name="pixel-size">96</property>
+                                                      <object class="GtkImage">                                                        <property name="pixel-size">96</property>
                                                         <property name="margin-bottom">8</property>
                                                       </object>
                                                     </child>
@@ -918,97 +940,73 @@
                                                 </style>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="project_website_row">
-                                                    <property name="activatable">True</property>
-                                                    <property name="icon-name">webpage-symbolic</property>
-                                                    <property name="title" translatable="yes">Project _Website</property>
+                                                  <object class="GtkListBoxRow" id="project_website_row">
+                                                    <property name="activatable">True</property>                                                    <property name="title" translatable="yes">Project _Website</property>
                                                     <property name="subtitle-lines">1</property>
                                                     <property name="use-underline">True</property>
                                                     <signal name="activated" handler="gs_details_page_link_row_activated_cb"/>
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">external-link-symbolic</property>
-                                                      </object>
+                                                      <object class="GtkImage">                                                      </object>
                                                     </child>
                                                   </object>
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="donate_row">
-                                                    <property name="activatable">True</property>
-                                                    <property name="icon-name">donate-symbolic</property>
-                                                    <property name="title" translatable="yes">_Donate</property>
+                                                  <object class="GtkListBoxRow" id="donate_row">
+                                                    <property name="activatable">True</property>                                                    <property name="title" translatable="yes">_Donate</property>
                                                     <property name="subtitle-lines">1</property>
                                                     <property name="use-underline">True</property>
                                                     <signal name="activated" handler="gs_details_page_link_row_activated_cb"/>
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">external-link-symbolic</property>
-                                                      </object>
+                                                      <object class="GtkImage">                                                      </object>
                                                     </child>
                                                   </object>
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="translate_row">
-                                                    <property name="activatable">True</property>
-                                                    <property name="icon-name">translations-symbolic</property>
-                                                    <property name="title" translatable="yes">Contribute _Translations</property>
+                                                  <object class="GtkListBoxRow" id="translate_row">
+                                                    <property name="activatable">True</property>                                                    <property name="title" translatable="yes">Contribute _Translations</property>
                                                     <property name="subtitle-lines">1</property>
                                                     <property name="use-underline">True</property>
                                                     <signal name="activated" handler="gs_details_page_link_row_activated_cb"/>
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">external-link-symbolic</property>
-                                                      </object>
+                                                      <object class="GtkImage">                                                      </object>
                                                     </child>
                                                   </object>
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="report_an_issue_row">
-                                                    <property name="activatable">True</property>
-                                                    <property name="icon-name">computer-fail-symbolic</property>
-                                                    <property name="title" translatable="yes">_Report an Issue</property>
+                                                  <object class="GtkListBoxRow" id="report_an_issue_row">
+                                                    <property name="activatable">True</property>                                                    <property name="title" translatable="yes">_Report an Issue</property>
                                                     <property name="subtitle-lines">1</property>
                                                     <property name="use-underline">True</property>
                                                     <signal name="activated" handler="gs_details_page_link_row_activated_cb"/>
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">external-link-symbolic</property>
-                                                      </object>
+                                                      <object class="GtkImage">                                                      </object>
                                                     </child>
                                                   </object>
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="help_row">
-                                                    <property name="activatable">True</property>
-                                                    <property name="icon-name">help-link-symbolic</property>
-                                                    <property name="title" translatable="yes">_Help</property>
+                                                  <object class="GtkListBoxRow" id="help_row">
+                                                    <property name="activatable">True</property>                                                    <property name="title" translatable="yes">_Help</property>
                                                     <property name="subtitle-lines">1</property>
                                                     <property name="use-underline">True</property>
                                                     <signal name="activated" handler="gs_details_page_link_row_activated_cb"/>
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">external-link-symbolic</property>
-                                                      </object>
+                                                      <object class="GtkImage">                                                      </object>
                                                     </child>
                                                   </object>
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="contact_row">
-                                                    <property name="activatable">True</property>
-                                                    <property name="icon-name">contact-symbolic</property>
-                                                    <property name="title" translatable="yes" context="verb" comments="Translators: This is a verb, used on a button to ‘contact the developer’">_Contact</property>
+                                                  <object class="GtkListBoxRow" id="contact_row">
+                                                    <property name="activatable">True</property>                                                    <property name="title" translatable="yes" context="verb" comments="Translators: This is a verb, used on a button to ‘contact the developer’">_Contact</property>
                                                     <property name="subtitle-lines">1</property>
                                                     <property name="use-underline">True</property>
                                                     <signal name="activated" handler="gs_details_page_link_row_activated_cb"/>
                                                     <child>
-                                                      <object class="GtkImage">
-                                                        <property name="icon-name">external-link-symbolic</property>
-                                                      </object>
+                                                      <object class="GtkImage">                                                      </object>
                                                     </child>
                                                   </object>
                                                 </child>
@@ -1024,7 +1022,9 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="box_reviews" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -1055,7 +1055,7 @@
                                         <property name="homogeneous" bind-source="GsDetailsPage" bind-property="is-narrow" bind-flags="sync-create|invert-boolean"/>
                                         <child>
                                           <object class="GtkListBox" id="list_box_reviews_summary">
-                                            <property name="can_focus">True</property>
+                                            <property name="can-focus">True</property>
                                             <property name="selection_mode">none</property>
                                             <property name="valign">start</property>
                                             <style>
@@ -1066,7 +1066,9 @@
                                                 <property name="activatable">False</property>
                                                 <property name="visible">False</property>
                                                 <child>
-                                                  <object class="AdwClamp">
+                                                  <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                                     <property name="halign">start</property>
                                                     <property name="maximum-size">500</property>
                                                     <property name="tightening-threshold">500</property>
@@ -1081,7 +1083,7 @@
                                               </object>
                                             </child>
                                             <child>
-                                              <object class="AdwButtonRow" id="write_review_button_row">
+                                              <object class="GtkButton" id="write_review_button_row">
                                                 <property name="title" translatable="yes" comments="Translators: Button opening a dialog where the users can write and publish their opinions about the apps.">Write R_eview</property>
                                                 <property name="end-icon-name">go-next-symbolic</property>
                                                 <property name="use-underline">True</property>
@@ -1091,14 +1093,14 @@
                                         </child>
                                         <child>
                                           <object class="GtkListBox" id="list_box_featured_review">
-                                            <property name="can_focus">True</property>
+                                            <property name="can-focus">True</property>
                                             <property name="selection_mode">none</property>
                                             <property name="valign">start</property>
                                             <style>
                                               <class name="boxed-list"/>
                                             </style>
                                             <child>
-                                              <object class="AdwButtonRow" id="all_reviews_button_row">
+                                              <object class="GtkButton" id="all_reviews_button_row">
                                                 <property name="title" translatable="yes" comments="Translators: Button opening a dialog showing all reviews for an app.">All Reviews</property>
                                                 <property name="end-icon-name">go-next-symbolic</property>
                                               </object>
@@ -1112,7 +1114,9 @@
                               </object>
                             </child>
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="halign">center</property>
                                 <property name="visible" bind-source="box_developer_apps" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -1169,9 +1173,11 @@
           <object class="GtkStackPage">
             <property name="name">failed</property>
             <property name="child">
-              <object class="AdwStatusPage" id="page_failed">
-                <property name="icon-name">dialog-error-symbolic</property>
-                <property name="title" translatable="yes">Unable to Show App Details</property>
+              <object class="GtkBox" id="page_failed">
+    <property name="orientation">vertical</property>
+    <property name="spacing">12</property>
+    <property name="halign">center</property>
+    <property name="valign">center</property>                <property name="title" translatable="yes">Unable to Show App Details</property>
               </object>
             </property>
           </object>

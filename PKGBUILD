@@ -20,7 +20,7 @@ build() {
 
 check() {
   cd "$srcdir/gnome-software-gtk3"
-  meson test -C build || true
+  meson test -C build
 }
 
 package() {

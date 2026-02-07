@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsDetailsPage" parent="GsPage">
+  <requires lib="gtk" version="3.0"/>  <template class="GsDetailsPage" parent="GsPage">
     <accessibility>
       <property name="label" translatable="yes">Details page</property>
     </accessibility>
@@ -13,11 +11,9 @@
           <object class="GtkStackPage">
             <property name="name">spinner</property>
             <property name="child">
-              <object class="AdwStatusPage">
+              <object class="GtkBox">
                 <property name="paintable">
-                  <object class="AdwSpinnerPaintable">
-                    <property name="widget">GsDetailsPage</property>
-                  </object>
+                  <!-- AdwSpinnerPaintable removed - no GTK3 equivalent -->
                 </property>
                 <property name="title" translatable="yes">Loading App Details</property>
               </object>
@@ -32,7 +28,7 @@
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="AdwBanner" id="translation_banner">
+                  <object class="GtkInfoBar" id="translation_banner">
                     <property name="button-label" translatable="yes">Help _Translate</property>
                     <signal name="button-clicked" handler="gs_details_page_translation_banner_clicked_cb" swapped="yes"/>
                   </object>
@@ -58,7 +54,7 @@
                               <class name="details-page"/>
                             </style>
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -159,13 +155,23 @@
                                                     <property name="halign">start</property>
                                                     <property name="valign">center</property>
                                                     <property name="icon-size">16</property>
+                                                    <!-- GTK4 Gesture Click removed for GTK3 compatibility
+
+                                                    <!-- GTK4 Gesture Click removed for GTK3 compatibility
+
+
                                                     <child>
-                                                      <object class="GtkGestureClick">
-                                                        <!-- GDK_BUTTON_PRIMARY -->
-                                                        <property name="button">1</property>
-                                                        <signal name="pressed" handler="gs_details_page_star_pressed_cb" object="GsDetailsPage" swapped="no" />
-                                                      </object>
+
+
+                                                      <object class="GtkGestureClick">...</object>
+
+
                                                     </child>
+
+
+                                                    -->
+
+                                                    -->
                                                   </object>
                                                 </child>
                                                 <child>
@@ -263,15 +269,23 @@
                                                       <!-- TRANSLATORS: button text in the header when an app can be erased -->
                                                       <property name="label" translatable="yes">Uninstall</property>
                                                     </accessibility>
+                                                    <!-- GTK4 Shortcut Controller removed for GTK3 compatibility
+
+                                                    <!-- GTK4 Shortcut Controller removed for GTK3 compatibility
+
+
                                                     <child>
-                                                      <object class="GtkShortcutController">
-                                                        <property name="scope">managed</property>
-                                                        <child>
-                                                          <object class="GtkShortcut">
-                                                            <property name="trigger">&lt;Control&gt;U</property>
-                                                            <property name="action">activate</property>
-                                                          </object>
-                                                        </child>
+
+
+                                                      <object class="GtkShortcutController">...</object>
+
+
+                                                    </child>
+
+
+                                                    -->
+
+                                                    -->
                                                       </object>
                                                     </child>
                                                   </object>
@@ -391,7 +405,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -430,7 +444,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -474,7 +488,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -488,7 +502,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -508,7 +522,7 @@
                                       </object>
                                     </child>
                                     <child>
-                                      <object class="AdwButtonRow" id="version_history_button_row">
+                                      <object class="GtkListBoxRow" id="version_history_button_row">
                                         <property name="title" translatable="yes">Version History</property>
                                         <property name="end-icon-name">go-next-symbolic</property>
                                       </object>
@@ -519,7 +533,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="infobar_details_eol" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -557,7 +571,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="infobar_details_problems_label" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -588,7 +602,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="label_webapp_warning" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -613,7 +627,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="infobar_details_app_repo" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -651,7 +665,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="infobar_details_app_norepo" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -689,7 +703,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="infobar_details_package_baseos" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -720,7 +734,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="infobar_details_repo" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -765,7 +779,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="infobar_app_data" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -826,7 +840,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
                                 <property name="tightening-threshold">576</property>
@@ -918,7 +932,7 @@
                                                 </style>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="project_website_row">
+                                                  <object class="GtkListBoxRow" id="project_website_row">
                                                     <property name="activatable">True</property>
                                                     <property name="icon-name">webpage-symbolic</property>
                                                     <property name="title" translatable="yes">Project _Website</property>
@@ -934,7 +948,7 @@
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="donate_row">
+                                                  <object class="GtkListBoxRow" id="donate_row">
                                                     <property name="activatable">True</property>
                                                     <property name="icon-name">donate-symbolic</property>
                                                     <property name="title" translatable="yes">_Donate</property>
@@ -950,7 +964,7 @@
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="translate_row">
+                                                  <object class="GtkListBoxRow" id="translate_row">
                                                     <property name="activatable">True</property>
                                                     <property name="icon-name">translations-symbolic</property>
                                                     <property name="title" translatable="yes">Contribute _Translations</property>
@@ -966,7 +980,7 @@
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="report_an_issue_row">
+                                                  <object class="GtkListBoxRow" id="report_an_issue_row">
                                                     <property name="activatable">True</property>
                                                     <property name="icon-name">computer-fail-symbolic</property>
                                                     <property name="title" translatable="yes">_Report an Issue</property>
@@ -982,7 +996,7 @@
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="help_row">
+                                                  <object class="GtkListBoxRow" id="help_row">
                                                     <property name="activatable">True</property>
                                                     <property name="icon-name">help-link-symbolic</property>
                                                     <property name="title" translatable="yes">_Help</property>
@@ -998,7 +1012,7 @@
                                                 </child>
 
                                                 <child>
-                                                  <object class="AdwActionRow" id="contact_row">
+                                                  <object class="GtkListBoxRow" id="contact_row">
                                                     <property name="activatable">True</property>
                                                     <property name="icon-name">contact-symbolic</property>
                                                     <property name="title" translatable="yes" context="verb" comments="Translators: This is a verb, used on a button to ‘contact the developer’">_Contact</property>
@@ -1024,7 +1038,7 @@
                             </child>
 
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="box_reviews" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -1066,7 +1080,7 @@
                                                 <property name="activatable">False</property>
                                                 <property name="visible">False</property>
                                                 <child>
-                                                  <object class="AdwClamp">
+                                                  <object class="GtkBox">
                                                     <property name="halign">start</property>
                                                     <property name="maximum-size">500</property>
                                                     <property name="tightening-threshold">500</property>
@@ -1081,7 +1095,7 @@
                                               </object>
                                             </child>
                                             <child>
-                                              <object class="AdwButtonRow" id="write_review_button_row">
+                                              <object class="GtkListBoxRow" id="write_review_button_row">
                                                 <property name="title" translatable="yes" comments="Translators: Button opening a dialog where the users can write and publish their opinions about the apps.">Write R_eview</property>
                                                 <property name="end-icon-name">go-next-symbolic</property>
                                                 <property name="use-underline">True</property>
@@ -1098,7 +1112,7 @@
                                               <class name="boxed-list"/>
                                             </style>
                                             <child>
-                                              <object class="AdwButtonRow" id="all_reviews_button_row">
+                                              <object class="GtkListBoxRow" id="all_reviews_button_row">
                                                 <property name="title" translatable="yes" comments="Translators: Button opening a dialog showing all reviews for an app.">All Reviews</property>
                                                 <property name="end-icon-name">go-next-symbolic</property>
                                               </object>
@@ -1112,7 +1126,7 @@
                               </object>
                             </child>
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <property name="visible" bind-source="box_developer_apps" bind-property="visible" bind-flags="sync-create"/>
                                 <property name="maximum-size">860</property>
                                 <!-- ~⅔ of the maximum size. -->
@@ -1169,7 +1183,7 @@
           <object class="GtkStackPage">
             <property name="name">failed</property>
             <property name="child">
-              <object class="AdwStatusPage" id="page_failed">
+              <object class="GtkBox" id="page_failed">
                 <property name="icon-name">dialog-error-symbolic</property>
                 <property name="title" translatable="yes">Unable to Show App Details</property>
               </object>

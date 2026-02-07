@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsSearchPage" parent="GsPage">
+  <requires lib="gtk" version="3.0"/>  <template class="GsSearchPage" parent="GsPage">
     <accessibility>
       <property name="label" translatable="yes">Search page</property>
     </accessibility>
@@ -13,7 +11,7 @@
           <object class="GtkStackPage">
             <property name="name">no-search</property>
             <property name="child">
-              <object class="AdwStatusPage">
+              <object class="GtkBox">
                 <property name="icon_name">org.gnome.Software-symbolic</property>
                 <property name="title" translatable="yes">Search for Apps</property>
               </object>
@@ -25,7 +23,7 @@
           <object class="GtkStackPage">
             <property name="name">spinner</property>
             <property name="child">
-              <object class="AdwSpinner" id="spinner_search"/>
+              <object class="GtkSpinner" id="spinner_search"/>
             </property>
           </object>
         </child>
@@ -34,7 +32,7 @@
           <object class="GtkStackPage">
             <property name="name">no-results</property>
             <property name="child">
-              <object class="AdwStatusPage" id="noresults_grid_search">
+              <object class="GtkBox" id="noresults_grid_search">
                 <property name="icon_name">org.gnome.Software-symbolic</property>
                 <property name="title" translatable="yes">No App Found</property>
               </object>
@@ -54,7 +52,7 @@
                   <class name="list-page"/>
                 </style>
                 <child>
-                  <object class="AdwClamp">
+                  <object class="GtkBox">
                     <child>
                       <object class="GtkListBox" id="list_box_search">
                         <property name="can_focus">True</property>

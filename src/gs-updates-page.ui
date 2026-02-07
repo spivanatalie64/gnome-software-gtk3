@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk" version="3.0"/>
   <template class="GsUpdatesPage" parent="GsPage">
     <accessibility>
       <property name="label" translatable="yes">Updates page</property>
@@ -10,7 +9,7 @@
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-          <object class="AdwBanner" id="banner_end_of_life"/>
+          <object class="GtkInfoBar" id="banner_end_of_life"/>
         </child>
         <child>
           <object class="GtkStack" id="stack_updates">
@@ -19,11 +18,9 @@
               <object class="GtkStackPage">
                 <property name="name">spinner</property>
                 <property name="child">
-                  <object class="AdwStatusPage">
+                  <object class="GtkBox">
                     <property name="paintable">
-                      <object class="AdwSpinnerPaintable">
-                        <property name="widget">GsUpdatesPage</property>
-                      </object>
+                      <!-- AdwSpinnerPaintable removed - no GTK3 equivalent -->
                     </property>
                     <property name="title" translatable="yes" comments="TRANSLATORS: the updates panel is starting up.">Loading Updates</property>
                     <property name="description" translatable="yes" comments="TRANSLATORS: the updates panel is starting up.">This could take a while</property>
@@ -44,7 +41,7 @@
                       <class name="list-page"/>
                     </style>
                     <child>
-                      <object class="AdwClamp">
+                      <object class="GtkBox">
                         <property name="maximum-size">600</property>
                         <property name="tightening-threshold">400</property>
                         <child>
@@ -119,7 +116,7 @@
                             <property name="orientation">vertical</property>
                             <property name="valign">center</property>
                             <child>
-                              <object class="AdwClamp">
+                              <object class="GtkBox">
                                 <child>
                                   <object class="GtkBox">
                                     <property name="orientation">vertical</property>
@@ -174,7 +171,7 @@
               <object class="GtkStackPage">
                 <property name="name">mobile</property>
                 <property name="child">
-                  <object class="AdwStatusPage">
+                  <object class="GtkBox">
                     <property name="icon_name">dialog-warning-symbolic</property>
                     <property name="title" translatable="yes">Use Mobile Data?</property>
                     <property name="description" translatable="yes">Checking for updates when using mobile broadband could cause you to incur charges</property>
@@ -197,7 +194,7 @@
               <object class="GtkStackPage">
                 <property name="name">offline</property>
                 <property name="child">
-                  <object class="AdwStatusPage">
+                  <object class="GtkBox">
                     <property name="icon_name">network-offline-symbolic</property>
                     <property name="title" translatable="yes">No Connection</property>
                     <property name="description" translatable="yes">Go online to check for updates</property>
@@ -221,7 +218,7 @@
               <object class="GtkStackPage">
                 <property name="name">failed</property>
                 <property name="child">
-                  <object class="AdwStatusPage" id="updates_failed_page">
+                  <object class="GtkBox" id="updates_failed_page">
                     <property name="icon_name">action-unavailable-symbolic</property>
                     <property name="title" translatable="yes">Error</property>
                     <!-- placeholder, the description is changed in the code -->
@@ -235,7 +232,7 @@
               <object class="GtkStackPage">
                 <property name="name">managed</property>
                 <property name="child">
-                  <object class="AdwStatusPage">
+                  <object class="GtkBox">
                     <property name="icon_name">action-unavailable-symbolic</property>
                     <property name="title" translatable="yes">Error</property>
                     <property name="description" translatable="yes">Updates are automatically managed</property>
@@ -264,15 +261,23 @@
         <accessibility>
           <property name="label" translatable="yes">Check for Updates</property>
         </accessibility>
+        <!-- GTK4 Shortcut Controller removed for GTK3 compatibility
+
+        <!-- GTK4 Shortcut Controller removed for GTK3 compatibility
+
+
         <child>
-          <object class="GtkShortcutController">
-            <property name="scope">managed</property>
-            <child>
-              <object class="GtkShortcut">
-                <property name="trigger">&lt;Control&gt;r</property>
-                <property name="action">activate</property>
-              </object>
-            </child>
+
+
+          <object class="GtkShortcutController">...</object>
+
+
+        </child>
+
+
+        -->
+
+        -->
             <child>
               <object class="GtkShortcut">
                 <property name="trigger">F5</property>
@@ -291,15 +296,23 @@
         <accessibility>
           <property name="label" translatable="yes">Stop</property>
         </accessibility>
+        <!-- GTK4 Shortcut Controller removed for GTK3 compatibility
+
+        <!-- GTK4 Shortcut Controller removed for GTK3 compatibility
+
+
         <child>
-          <object class="GtkShortcutController">
-            <property name="scope">managed</property>
-            <child>
-              <object class="GtkShortcut">
-                <property name="trigger">Escape</property>
-                <property name="action">activate</property>
-              </object>
-            </child>
+
+
+          <object class="GtkShortcutController">...</object>
+
+
+        </child>
+
+
+        -->
+
+        -->
           </object>
         </child>
       </object>

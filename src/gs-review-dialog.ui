@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsReviewDialog" parent="AdwDialog">
+  <requires lib="gtk" version="3.0"/>  <template class="GsReviewDialog" parent="GtkDialog">
     <property name="title" translatable="yes" comments="Translators: Title of the dialog box where the users can write and publish their opinions about the apps.">Write a Review</property>
     <property name="content-width">480</property>
     <property name="content-height">560</property>
     <property name="child">
-      <object class="AdwToastOverlay" id="toast_overlay">
+      <object class="GtkOverlay" id="toast_overlay">
         <property name="child">
-          <object class="AdwToolbarView">
+          <object class="GtkBox">
             <child type="top">
-              <object class="AdwHeaderBar">
+              <object class="GtkHeaderBar">
                 <property name="show_start_title_buttons">False</property>
                 <property name="show_end_title_buttons">False</property>
                 <property name="title-widget">
-                  <object class="AdwWindowTitle">
+                  <object class="GtkLabel">
                     <property name="title" bind-source="GsReviewDialog" bind-property="title" bind-flags="sync-create"/>
                   </object>
                 </property>
@@ -38,10 +36,10 @@
               </object>
             </child>
             <property name="content">
-              <object class="AdwPreferencesPage">
+              <object class="GtkScrolledWindow">
                 <property name="description" translatable="yes">Please provide a rating, summary and review text. Reviews should not be used to report problems: instead, contact the developer or your support provider.</property>
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="GtkBox">
                     <child>
                       <object class="GtkBox">
                         <property name="orientation">vertical</property>
@@ -68,16 +66,16 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="GtkBox">
                     <child>
-                      <object class="AdwEntryRow" id="summary_entry">
+                      <object class="GtkListBoxRow" id="summary_entry">
                         <property name="activatable">False</property>
                         <property name="focusable">False</property>
                         <property name="title" translatable="yes">Review Summary</property>
                       </object>
                     </child>
                     <child>
-                      <object class="AdwPreferencesRow" id="review_row">
+                      <object class="GtkListBoxRow" id="review_row">
                         <property name="activatable">False</property>
                         <property name="focusable">False</property>
                         <style>

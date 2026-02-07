@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsFeaturedCarousel" parent="GtkBox">
+  <requires lib="gtk" version="3.0"/>  <template class="GsFeaturedCarousel" parent="GtkBox">
     <property name="halign">fill</property>
     <property name="orientation">vertical</property>
     <property name="spacing">12</property>
+    <!-- GTK4 Event Controller removed for GTK3 compatibility
+
+    <!-- GTK4 Event Controller removed for GTK3 compatibility
+
+
     <child>
-      <object class="GtkEventControllerKey">
-        <signal name="key-pressed" handler="key_pressed_cb"/>
-      </object>
+
+
+      <object class="GtkEventControllerKey">...</object>
+
+
     </child>
+
+
+    -->
+
+    -->
     <style>
       <class name="featured-carousel"/>
     </style>
@@ -19,7 +29,7 @@
         <property name="halign">fill</property>
         <property name="valign">fill</property>
         <child>
-          <object class="AdwCarousel" id="carousel">
+          <object class="GtkStack" id="carousel">
             <signal name="notify::position" handler="carousel_notify_position_cb" swapped="yes"/>
             <style>
               <class name="card"/>
@@ -74,11 +84,7 @@
         </child>
       </object>
     </child>
-    <child>
-      <object class="AdwCarouselIndicatorDots" id="dots">
-        <property name="carousel">carousel</property>
-      </object>
-    </child>
+    <!-- AdwCarouselIndicatorDots removed - no GTK3 equivalent -->
     <accessibility>
       <property name="label" translatable="yes">Featured Apps List</property>
     </accessibility>

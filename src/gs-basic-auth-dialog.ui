@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsBasicAuthDialog" parent="AdwDialog">
+  <requires lib="gtk" version="3.0"/>  <template class="GsBasicAuthDialog" parent="GtkDialog">
     <property name="title" translatable="yes">Login Required</property>
     <property name="content-width">360</property>
     <property name="default-widget">login_button</property>
     <signal name="closed" handler="close_cb" object="GsBasicAuthDialog" swapped="yes"/>
     <property name="child">
-      <object class="AdwToolbarView">
+      <object class="GtkBox">
         <child type="top">
-          <object class="AdwHeaderBar">
+          <object class="GtkHeaderBar">
             <property name="show_start_title_buttons">False</property>
             <property name="show_end_title_buttons">False</property>
             <child type="start">
@@ -37,11 +35,11 @@
           </object>
         </child>
         <property name="content">
-          <object class="AdwPreferencesPage" id="page">
+          <object class="GtkScrolledWindow" id="page">
             <child>
-              <object class="AdwPreferencesGroup">
+              <object class="GtkBox">
                 <child>
-                  <object class="AdwEntryRow" id="user_entry">
+                  <object class="GtkListBoxRow" id="user_entry">
                     <property name="title" translatable="yes" comments="Translators: Title for a login entry.">_User</property>
                     <property name="use-underline">True</property>
                     <property name="activates_default">True</property>
@@ -50,7 +48,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwPasswordEntryRow" id="password_entry">
+                  <object class="GtkListBoxRow" id="password_entry">
                     <property name="title" translatable="yes" comments="Translators: Title for a login entry.">_Password</property>
                     <property name="use-underline">True</property>
                     <property name="activates_default">True</property>

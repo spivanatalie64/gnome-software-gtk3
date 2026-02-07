@@ -85,7 +85,7 @@
       </object>
     </child>
     <!-- AdwCarouselIndicatorDots removed - no GTK3 equivalent -->
-<accessibility>
+    <accessibility>
       <property name="label" translatable="yes">Featured Apps List</property>
     </accessibility>
   </template>

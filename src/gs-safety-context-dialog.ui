@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.20"/>
   <template class="GsSafetyContextDialog" parent="GsInfoWindow">
     <property name="title" translatable="yes" comments="Translators: This is the title of the dialog which contains information about the permissions of an app">Safety</property>
     <property name="content-width">640</property>
     <property name="content-height">576</property>
     <child>
-      <object class="AdwPreferencesPage">
+      <object class="GtkScrolledWindow"><property name="hscrollbar-policy">never</property><child><object class="GtkBox"><property name="orientation">vertical</property><property name="spacing">24</property><property name="margin">18</property>
 
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox"><property name="orientation">vertical</property><property name="spacing">6</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
@@ -48,7 +47,7 @@
         </child>
 
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox"><property name="orientation">vertical</property><property name="spacing">6</property>
             <child>
               <object class="GtkListBox" id="permissions_list">
                 <property name="selection_mode">none</property>
@@ -63,10 +62,10 @@
         </child>
 
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox"><property name="orientation">vertical</property><property name="spacing">6</property>
             <property name="title" translatable="yes">Details</property>
             <child>
-              <object class="AdwActionRow" id="license_row">
+              <object class="GtkListBoxRow" id="license_row">
                 <property name="title" translatable="yes">License</property>
                 <property name="focusable">True</property><!-- to allow Orca to read row contents -->
                 <property name="subtitle-selectable">True</property>
@@ -77,7 +76,7 @@
             </child>
 
             <child>
-              <object class="AdwActionRow" id="source_row">
+              <object class="GtkListBoxRow" id="source_row">
                 <property name="title" translatable="yes" comments="Translators: This is a heading for a row showing the origin/source of an app (such as ‘flathub’).">Source</property>
                 <property name="focusable">True</property><!-- to allow Orca to read row contents -->
                 <property name="subtitle-selectable">True</property>
@@ -88,7 +87,7 @@
             </child>
 
             <child>
-              <object class="AdwActionRow" id="packagename_row">
+              <object class="GtkListBoxRow" id="packagename_row">
                 <property name="title" translatable="yes" comments="Translators: This is a heading for a row showing the package name of an app (such as ‘gnome-software-46.0-1’).">Package</property>
                 <property name="focusable">True</property><!-- to allow Orca to read row contents -->
                 <property name="subtitle-selectable">True</property>
@@ -99,7 +98,7 @@
             </child>
 
             <child>
-              <object class="AdwActionRow" id="sdk_row">
+              <object class="GtkListBoxRow" id="sdk_row">
                 <property name="title" translatable="yes">SDK</property>
                 <property name="focusable">True</property><!-- to allow Orca to read row contents -->
                 <property name="subtitle-selectable">True</property>
@@ -124,9 +123,9 @@
         </child>
 
         <child>
-          <object class="AdwPreferencesGroup">
+          <object class="GtkBox"><property name="orientation">vertical</property><property name="spacing">6</property>
             <child>
-              <object class="AdwButtonRow">
+              <object class="GtkListBoxRow">
                 <property name="title" translatable="yes">_How to contribute missing information</property>
                 <property name="end-icon-name">external-link-symbolic</property>
                 <property name="use-underline">True</property>
@@ -142,7 +141,7 @@
   <object class="GtkPopover" id="sdk_info_popover">
     <property name="position">bottom</property>
     <property name="visible">False</property>
-    <property name="child">
+    <child>
       <object class="GtkLabel">
         <property name="halign">center</property>
         <property name="margin-start">6</property>
@@ -153,9 +152,10 @@
         <property name="wrap">True</property>
         <property name="max-width-chars">50</property>
         <property name="valign">center</property>
+        <property name="visible">True</property>
         <!--This is a hack so the popover contents can be read by the screen reader. See https://gitlab.gnome.org/GNOME/gnome-control-center/-/merge_requests/1891-->
-        <property name="selectable" bind-source="sdk_info_popover" bind-property="visible" bind-flags="invert-boolean">True</property>
+        <property name="selectable">True</property>
       </object>
-    </property>
+    </child>
   </object>
 </interface>

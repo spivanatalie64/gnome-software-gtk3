@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.20"/>
   <template class="GsScreenshotCarousel" parent="GtkWidget">
     <property name="visible">False</property>
     <child>
       <object class="GtkStack" id="stack">
 
         <child>
-          <object class="GtkStackPage">
-            <property name="name">carousel</property>
-            <property name="child">
-              <object class="GtkBox">
+          <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <style>
                   <class name="frame"/>
@@ -20,7 +16,7 @@
                 <child>
                   <object class="GtkOverlay">
                     <child>
-                      <object class="AdwCarousel" id="carousel">
+                      <object class="GtkStack" id="carousel">
                         <property name="vexpand">True</property>
                         <signal name="notify::n-pages" handler="gs_screenshot_carousel_notify_n_pages_cb" swapped="yes"/>
                         <signal name="notify::position" handler="gs_screenshot_carousel_notify_position_cb" swapped="yes"/>
@@ -85,25 +81,23 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwCarouselIndicatorDots" id="carousel_indicator">
+                  <object class="GtkBox" id="carousel_indicator">
                     <property name="carousel">carousel</property>
                   </object>
                 </child>
               </object>
-            </property>
-          </object>
+          <packing>
+            <property name="name">carousel</property>
+          </packing>
         </child>
 
         <child>
-          <object class="GtkStackPage">
-            <property name="name">fallback</property>
-            <property name="child">
-              <object class="GtkBox">
+          <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <property name="spacing">12</property>
                 <!-- Arbitrary size chosen to tile together at 16:9;
                      see https://blogs.gnome.org/hughsie/2014/07/02/blurry-screenshots-in-gnome-software/ -->
-                <property name="height_request">423</property>
+                <property name="height-request">423</property>
                 <property name="hexpand">True</property>
                 <property name="halign">fill</property>
                 <style>
@@ -135,9 +129,9 @@
                   </object>
                 </child>
               </object>
-
-            </property>
-          </object>
+          <packing>
+            <property name="name">fallback</property>
+          </packing>
         </child>
 
       </object>

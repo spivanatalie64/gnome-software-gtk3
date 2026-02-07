@@ -5,20 +5,19 @@
 -->
 <interface>
   <requires lib="gtk" version="4.10"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsDkmsDialog" parent="AdwDialog">
+  <template class="GsDkmsDialog" parent="GtkDialog">
     <property name="title" translatable="no"></property>
     <property name="content_width">550</property>
     <property name="focus-widget">i_have_made_a_note_check</property>
     <child>
-      <object class="AdwNavigationView" id="navigation_view">
+      <object class="GtkStack" id="navigation_view">
         <child>
-          <object class="AdwNavigationPage">
+          <object class="GtkBox">
             <property name="title" translatable="yes">MOK Enrollment Required</property>
             <property name="child">
-              <object class="AdwToolbarView">
+              <object class="GtkBox">
                 <child type="top">
-                  <object class="AdwHeaderBar">
+                  <object class="GtkHeaderBar">
                     <property name="hexpand">True</property>
                     <property name="show-back-button">False</property>
                     <property name="show-end-title-buttons">False</property>
@@ -79,7 +78,7 @@
                     <child>
                       <object class="GtkListBox">
                         <child>
-                          <object class="AdwActionRow">
+                          <object class="GtkListBoxRow">
                             <property name="title" translatable="yes">I have made a note of the MOK _password</property>
                             <property name="activatable-widget">i_have_made_a_note_check</property>
                             <property name="use-underline">True</property>
@@ -104,13 +103,13 @@
           </object>
         </child>
         <child>
-          <object class="AdwNavigationPage">
+          <object class="GtkBox">
             <property name="title" translatable="yes">MOK Enrollment Required</property>
             <property name="tag">final-page</property>
             <property name="child">
-              <object class="AdwToolbarView">
+              <object class="GtkBox">
                 <child type="top">
-                  <object class="AdwHeaderBar">
+                  <object class="GtkHeaderBar">
                     <property name="hexpand">True</property>
                     <property name="show-back-button">False</property>
                     <property name="show-end-title-buttons">False</property>

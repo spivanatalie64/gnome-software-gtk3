@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
+  <requires lib="gtk+" version="3.20"/>
   <template class="GsOverviewPage" parent="GsPage">
     <accessibility>
       <property name="label" translatable="yes">Overview page</property>
@@ -10,10 +9,7 @@
       <object class="GtkStack" id="stack_overview">
 
         <child>
-          <object class="GtkStackPage">
-            <property name="name">overview</property>
-            <property name="child">
-              <object class="GtkBox">
+          <object class="GtkBox">
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkScrolledWindow" id="scrolledwindow_overview">
@@ -26,9 +22,9 @@
                         <property name="hexpand">True</property>
                         <property name="vexpand">True</property>
                         <child>
-                          <object class="AdwClamp">
+                          <object class="GtkBox">
                             <!-- We use the same sizes as the category page. -->
-                            <property name="maximum-size">1000</property>
+                            <property name="width-request">1000</property>
                             <property name="tightening-threshold">600</property>
                             <child>
                               <object class="GtkBox">
@@ -202,20 +198,19 @@
                   </object>
                 </child>
               </object>
-            </property>
-          </object>
+          <packing>
+            <property name="name">overview</property>
+          </packing>
         </child>
 
         <child>
-          <object class="GtkStackPage">
-            <property name="name">no-results</property>
-            <property name="child">
-              <object class="AdwStatusPage" id="noresults_grid_overview">
-                <property name="icon_name">org.gnome.Software-symbolic</property>
-                <property name="title" translatable="yes">No App Data Found</property>
-              </object>
-            </property>
-          </object>
+            <object class="GtkBox" id="noresults_grid_overview">
+              <property name="icon_name">org.gnome.Software-symbolic</property>
+              <property name="title" translatable="yes">No App Data Found</property>
+            </object>
+            <packing>
+              <property name="name">no-results</property>
+            </packing>
         </child>
 
       </object>

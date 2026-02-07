@@ -18,6 +18,7 @@ build() {
   meson compile -C build
 }
 
+# Run tests. Set ACREETIONOS_OPTIONAL_TESTS=1 to allow test failures without breaking the build.
 check() {
   cd "$srcdir/gnome-software-gtk3"
   if [[ -n "${ACREETIONOS_OPTIONAL_TESTS:-}" ]]; then

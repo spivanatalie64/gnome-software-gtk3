@@ -63,6 +63,7 @@ adw_alert_dialog_new (const char *title, ...)
 static inline void
 adw_alert_dialog_set_extra_child (AdwAlertDialog *d, GtkWidget *child)
 {
+    /* GTK3 compat: gtk_container_add + explicit show to match GTK4 gtk_box_append behavior */
     GtkWidget *content_area = gtk_dialog_get_content_area (GTK_DIALOG (d));
     if (content_area && GTK_IS_WIDGET (child)) {
         gtk_container_add (GTK_CONTAINER (content_area), child);

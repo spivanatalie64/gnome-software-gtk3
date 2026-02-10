@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="adwaita" version="1.0"/>
-  <template class="GsSummaryTile" parent="GsAppTile">
+  <requires lib="gtk" version="3.0"/>  <template class="GsSummaryTile" parent="GsAppTile">
     <property name="hexpand">True</property>
     <!-- This is the minimum (sic!) width of a tile when the GtkFlowBox parent container switches to 3 columns -->
     <property name="preferred-width">270</property>
@@ -34,7 +32,7 @@
                 <property name="halign">fill</property>
                 <property name="valign">fill</property>
                 <child type="overlay">
-                  <object class="AdwBin" id="bin">
+                  <object class="GtkBox" id="bin">
                     <property name="visible">False</property>
                     <property name="halign">end</property>
                     <property name="valign">start</property>
